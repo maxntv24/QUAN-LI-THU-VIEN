@@ -9,7 +9,6 @@ int main() {
 	SendMessage(GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
 	remove_scrollbar();
 	//taoMaDocGia();
-	//homnayangi
 	menuChinh();
 	return 0;
 }
