@@ -1,0 +1,33 @@
+
+1024,Ngo Binh,An,Nam,1
+295,Hung Hong,Thuy,Nu,1
+133,Vu Duc,Quang,Nam,1
+331,Lien Mai,Ha,Nu,1
+7446,Thap Chi,Dung,Nam,0
+3770,Dang Viet,Duy,Nam,0
+3003,Khoa The,Quyen,Nam,0
+1495,Giap Kim,Mai,Nu,0
+1186,Vu Ngoc,Dung,Nam,0
+2841,Vu Tuan,Chau,Nam,0
+1794,Vu Quang,Dat,Nam,0
+2933,Vu Huy,Kha,Nam,1
+3351,Phu Ngan,Anh,Nu,1
+3332,Phan Ngoc Yen,Ngan,Nu,1
+3744,Kieu Nhu,Phuong,Nu,0
+3483,Vu Dang,Minh,Nam,1
+3533,Vu Duy,Hai,Nam,0
+7241,Nguyen Viet,Ngoc,Nam,1
+5541,Cu Hong,Chau,Nu,1
+5310,Huong Phuong,Ngoc,Nu,0
+4911,Nguyen Thi Thanh,Xuan,Nu,1
+3937,Vu Ta,Hien,Nu,0
+5788,Tham Xuan,Thuy,Nu,0
+5660,Truong Cam,Linh,Nu,0
+5724,Trieu Thu,Loan,Nu,1
+6753,Tu Thanh,Dan,Nu,0
+6781,Phan Tien,Si,Nam,0
+7586,Dinh Tung,Lam,Nam,1
+7531,Nham Minh,Vy,Nu,1
+9246,Ta Thanh,Tuyen,Nu,1
+7699,Tan Yen,Mai,Nu,1
+8086,Vu Duy,Tam,Nam,1

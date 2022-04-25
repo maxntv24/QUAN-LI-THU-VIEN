@@ -1,0 +1,12 @@
+﻿  main.cpp
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\my_lib.h(27,26): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\my_lib.h(27,29): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(11,2): warning C4091: 'typedef ': ignored on left of 'DanhMucSach' when no variable is declared
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(22,2): warning C4091: 'typedef ': ignored on left of 'listDanhMucSach' when no variable is declared
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(53,2): warning C4091: 'typedef ': ignored on left of 'MuonTra' when no variable is declared
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(36,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(74,6): warning C4101: 'i': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\load_file.h(11,6): warning C4101: 'tam': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(47,8): warning C4101: 'tam': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(106,6): warning C4101: 'chon': unreferenced local variable
+  Quan-Li-Thu-Vien.vcxproj -> D:\CTDL\Quan-Li-Thu-Vien\Debug\Quan-Li-Thu-Vien.exe
