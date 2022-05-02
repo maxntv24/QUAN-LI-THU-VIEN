@@ -150,4 +150,44 @@ void xoaBangHieuChinh() {
 	gotoXY(182, 8);
 	cout << "                   ";
 }
+void BangDauSACH() { // bang danh sach doc gia
+	textcolor(9);
+	for (int i = 5; i <= 150; i++) {  // ve canh ngang
+		gotoXY(i, 7);
+		cout << char(220);
+		gotoXY(i, 9);
+		cout << char(220);
+		gotoXY(i, 41);
+		cout << char(223);
+	}
+	for (int i = 8; i <= 40; i++) { // ve canh doc
+		gotoXY(5, i);
+		cout << char(219);
+		gotoXY(22, i);
+		cout << char(219);
+		gotoXY(60, i);
+		cout << char(219);
+		gotoXY(75, i);
+		cout << char(219);
+		gotoXY(100, i);
+		cout << char(219);
+		gotoXY(116, i);
+		cout << char(219);
+		gotoXY(150, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(10, 8);
+	cout << "ISBN";
+	gotoXY(34, 8);
+	cout << "TEN SACH";
+	gotoXY(64, 8);
+	cout << "SO TRANG";
+	gotoXY(84, 8);
+	cout << "TAC GIA";
+	gotoXY(102, 8);
+	cout << "NAM XUAT BAN";
+	gotoXY(130, 8);
+	cout << "THE LOAI";
+}
 

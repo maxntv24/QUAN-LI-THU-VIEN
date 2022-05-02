@@ -1,7 +1,7 @@
 #pragma once
 #include "my_lib.h"
 #include "All_function.h"
-#include "load_file.h"
+#include "doc_ghi_file.h"
 #include "DoHoa.h"
 char menu[][50] =
 {
@@ -58,7 +58,7 @@ void menuDocGia(treeDG &t) {
 			break;
 		}
 		case 2: {
-			yDG = 10;
+			yXuat = 10;
 			SetBGColor(0);
 			system("cls");
 			BangDS_DocGia();
@@ -106,24 +106,21 @@ void menuDocGia2(treeDG& t) {
 	int chon, sum = 4;
 	while (flagDG) {
 		//chon = MenuDong(menuDG, sum, 3, 40);
-		yDG = 10;
+		yXuat = 10;
 		SetBGColor(0);
 		system("cls");
 		BangDS_DocGia();
 		gotoXY(0, 0);
-		cout << "Nhap lua chon: ";
-		int c;
-		cin >> c;
-		if (c == 1) {
-			xuatDG_theoMa(t);
-		}
-		else
-		{
-			xuatDG_theoTen(t);
-		}
+		xuatDG_theoMa(t);
 		char k = _getch();
 		switch (k) {
-		case 49: {
+		case 49:{
+			system("cls");
+			xuatDG_theoTen(t);
+			_getch();
+			break;
+		}
+		case 50: {
 			textcolor(3);
 			DG a;
 			ifstream inMaDG("MaDG.txt");
@@ -145,7 +142,7 @@ void menuDocGia2(treeDG& t) {
 			system("cls");
 			break;
 		}
-		case 50: {
+		case 51: {
 			ShowCur(1);
 			textcolor(3);
 			BangXoa();
@@ -179,7 +176,7 @@ void menuDocGia2(treeDG& t) {
 			c = _getch();
 			break;
 		}
-		case 51: {
+		case 52: {
 			ShowCur(1);
 			textcolor(3);
 			BangHieuChinh();
@@ -210,30 +207,9 @@ void menuDauSach(listDauSach& ds) {
 	ShowCur(0);
 	int chon, sum = 4;
 	while (1) {
-		chon = MenuDong(menuDS, sum, 3, 40);
-		switch (chon) {
-		case 1: {
-			/*textcolor(3);
-			DG a;
-			cin >> a;
-			themDocGia(t, a);
-			system("cls");*/
-			break;
-		}
-		case 2: {
-			SetBGColor(0);
-			system("cls");
-			gotoXY(0, 0);
-			textcolor(12);
-			cout << "ISBN" << setw(30) << "Ten Sach" << setw(15) << "So trang" << setw(15) << "Tac gia" << setw(15) << "Nam Xuat Ban" << setw(15) << "The loai" << endl;
-			textcolor(14);
-			xuatDauSach(ds);
-			system("pause");
-			break;
-		}
-		
-		default: break;
-		}
+		SetBGColor(0);
+		xuatDauSach(ds);
+		_getch();
 	}
 }
 void menuChinh() {

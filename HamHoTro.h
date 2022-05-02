@@ -86,14 +86,14 @@ char chuyenChuThuongThanhHoa(char c) {
 	}
 	return c;
 }
-string nhap(int x,int y) {
+string nhapChu(int x,int y) {
 	gotoXY(x, y);
 	string s;
 	char tam = ' ';
 	while (true) {
 		char c = _getch();
-		if (c == ' ' && tam == ' ') continue;
-		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ') {
+		if ((c == ' ' && tam == ' ') || s.size() > 40) continue;
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ' ) {
 			gotoXY(x++, y);
 			if (tam == ' '){
 				cout << chuyenChuThuongThanhHoa(c);
@@ -118,4 +118,29 @@ string nhap(int x,int y) {
 	}
 	return s;
 }
+int nhapSo(int x, int y) {
+	string s;
+	while (true) {
+		char c = _getch();
+		if (c >= '0' && c <= '9') {
+			gotoXY(x++, y);
+			cout << c;
+			s = s + c;
+
+		}
+		if (c == 13) break;
+		if (c == 8) {
+			gotoXY(--x, y);
+			cout << ' ';
+			gotoXY(x, y);
+			s.pop_back();
+		}
+	}
+	int a = 0;
+	for (int i = 0; i < s.size(); i++) {
+		a = a * 10 + (int(s[i]) - 48);
+	}
+	return a;
+}
+
 

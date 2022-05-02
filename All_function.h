@@ -13,7 +13,7 @@
 #define PHAI 77
 using namespace std;
 void ghi_file_tat_ca_doc_gia(treeDG t);
-int yDG=10;
+int yXuat=10;
 // =================menu==================
 void Normal() {
 	SetBGColor(0);
@@ -128,8 +128,8 @@ istream& operator>>(istream& in, DG& a)
 	//====ho===
 	gotoXY(177, 6);
 	cout << a.maThe;
-	a.ho = nhap(177,9);
-	a.ten= nhap(177,13);
+	a.ho = nhapChu(177,9);
+	a.ten= nhapChu(177,13);
 	int chon = MenuDong2(phai, 2,17,177);
 	if (chon == 1) {
 		a.phai = "Nam";
@@ -143,20 +143,20 @@ istream& operator>>(istream& in, DG& a)
 	return in;
 }
 ostream& operator<<(ostream& out, DG a) {
-	gotoXY(7, yDG);
+	gotoXY(7, yXuat);
 	out << a.maThe;
-	gotoXY(22, yDG);
+	gotoXY(22, yXuat);
 	out << a.ho;
-	gotoXY(62, yDG);
+	gotoXY(62, yXuat);
 	out <<a.ten ;
-	gotoXY(82, yDG);
+	gotoXY(82, yXuat);
 	out  << a.phai;
-	gotoXY(92, yDG);
+	gotoXY(92, yXuat);
 	if (a.trangThai == 1) {
 		out << "Dang hoat dong";
 	}
 	else out << "Bi khoa";
-	yDG++;
+	yXuat++;
 	return out;
 }
 void xuatDG_theoMa(treeDG t)  // ki thuat left-node-right  sẽ đi sâu xuống về bên trái nhất rồi xuất rồi sang phải
@@ -166,15 +166,17 @@ void xuatDG_theoMa(treeDG t)  // ki thuat left-node-right  sẽ đi sâu xuống
 		cout << t->data;
 		xuatDG_theoMa(t->pright);
 	}
-	if ((yDG - 10 + 1) % 30 == 0) {
+	if ((yXuat - 10 + 1) % 30 == 0) {
 		char c = _getch();
-		yDG = 10;
+		yXuat = 10;
 		system("cls");
 		BangDS_DocGia();
 	}
 }
 void xuatDG_theoTen(treeDG t)
 {
+	BangDS_DocGia();
+	yXuat = 10;
 	int n=0;
 	DocGia* a[10000];
 	caySangMang(t,a,n);
@@ -182,7 +184,7 @@ void xuatDG_theoTen(treeDG t)
 	for (int i = 0; i < n; i++) {
 		if ((i + 1) % 30 == 0) {
 			char c = _getch();
-			yDG = 10;
+			yXuat = 10;
 			system("cls");
 			BangDS_DocGia();
 		}
@@ -289,15 +291,43 @@ void hieuchinhDG(treeDG &t, int x)
 
 //============Xu li dau sach==============
 ostream& operator<<(ostream& out, dauSach a) {
-	cout << a.ISBN << setw(30) << a.tenSach << setw(10) << a.soTrang << setw(20) << a.tacGia << setw(10) << a.namXuatBan << setw(30) << a.theLoai << endl;
+	textcolor(14);
+	gotoXY(7, yXuat);
+	cout << a.ISBN;
+	gotoXY(24, yXuat);
+	cout << a.tenSach;
+	gotoXY(62, yXuat);
+	cout << a.soTrang;
+	gotoXY(78, yXuat);
+	cout << a.tacGia;
+	gotoXY(102, yXuat);
+	cout << a.namXuatBan;
+	gotoXY(118, yXuat);
+	cout << a.theLoai;
+	yXuat++;
 	return out;
+}
+void xuatDauSach(listDauSach ds) {
+	yXuat = 10;
+	system("cls");
+	textcolor(14);
+	BangDauSACH();
+	for (int i = 0; i < ds.sl; i++) {
+		if (i % 30==0) {
+			_getch();
+			system("cls");
+			BangDauSACH();
+			yXuat = 10;
+		}
+		cout << *ds.ds_DauSach[i];
+	}
 }
 istream& operator>>(istream& in, dauSach& a)
 {
 	int y = 3;
 	gotoXY(80, y++);
 	cout << "Nhap IBSN : ";
-	in >> a.ISBN;
+	a.ISBN=nhapSo();
 	in.ignore();
 	gotoXY(80, y++);
 	cout << "Nhap ten sach: ";
@@ -329,11 +359,7 @@ void nhapDS(listDauSach& ds)
 	cin >> a;
 	themDauSach(ds, a);
 }
-void xuatDauSach(listDauSach ds) {
-	for (int i = 0; i < ds.sl; i++) {
-		cout << *ds.ds_DauSach[i];
-	}
-}
+
 //--- ham tim kiem dau sach theo ISBN neu co tra ve vi tri khong thi tra ve <-1>
 int TIM_DS_THEO_MA(listDauSach l, string ma)
 {

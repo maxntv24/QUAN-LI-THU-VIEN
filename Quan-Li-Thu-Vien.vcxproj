@@ -146,7 +146,7 @@
     <ClInclude Include="ctdl.h" />
     <ClInclude Include="DoHoa.h" />
     <ClInclude Include="HamHoTro.h" />
-    <ClInclude Include="load_file.h" />
+    <ClInclude Include="doc_ghi_file.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="my_lib.h" />
   </ItemGroup>

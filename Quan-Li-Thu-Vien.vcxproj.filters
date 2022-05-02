@@ -32,7 +32,7 @@
     <ClInclude Include="All_function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="load_file.h">
+    <ClInclude Include="doc_ghi_file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HamHoTro.h">
