@@ -3,7 +3,7 @@
 #include "string"
 #include<fstream>
 #include "All_function.h"
-
+//=======Doc gia===============
 void load_file_Doc_Gia(treeDG& t)
 {
 	ifstream in("DocGia.txt");
@@ -54,6 +54,7 @@ void ghi_file_tat_ca_doc_gia(treeDG t) {
 	}
 	out.close();
 }
+//========Dau Sach=============
 void load_file_Dau_Sach(listDauSach& DS)
 {
 	ifstream in("DAU_SACH.txt");
@@ -85,4 +86,27 @@ void load_file_Dau_Sach(listDauSach& DS)
 			themSach(DS.ds_DauSach[vitri]->dms, khoitaoDMS(x));
 		}
 	}
+	in.close();
+}
+void ghi_file_Dau_Sach(listDauSach ds) {
+	ofstream out("DAU_SACH.txt");
+	out << ds.sl << endl;
+	for (int i = 0; i < ds.sl; i++)
+	{
+		out << ds.ds_DauSach[i]->ISBN << ',';
+		out << ds.ds_DauSach[i]->tenSach << ',';
+		out << ds.ds_DauSach[i]->soTrang << ',';
+		out << ds.ds_DauSach[i]->tacGia << ',';
+		out << ds.ds_DauSach[i]->namXuatBan << ',';
+		out << ds.ds_DauSach[i]->theLoai << ',';
+		out << ds.ds_DauSach[i]->soLuongMuon << endl;
+		out << tong_so_sach(*ds.ds_DauSach[i]) << endl;
+		for (nodeDMS* p = ds.ds_DauSach[i]->dms.phead; p != NULL; p = p->pnext)
+		{
+			out << p->data.maSach << ',';
+			out << p->data.trangThai << ',';
+			out << p->data.vitri << endl;
+		}
+	}
+	out.close();
 }

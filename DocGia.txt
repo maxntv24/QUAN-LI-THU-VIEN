@@ -26,6 +26,7 @@
 5724,Trieu Thu,Loan,Nu,1
 6753,Tu Thanh,Dan,Nu,0
 6781,Phan Tien,Si,Nam,0
+6835,Nguyen Tan,Vu,Nam,0
 7586,Dinh Tung,Lam,Nam,1
 7531,Nham Minh,Vy,Nu,1
 9246,Ta Thanh,Tuyen,Nu,1

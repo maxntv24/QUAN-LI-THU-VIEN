@@ -1,4 +1,8 @@
-30
+33
+8935235211926,Gai Phuot,316,Yem Dao Lang Lo,2017,Du Ky,0
+0
+8935244846850,Kaa Du Ky,164,Kaa Illustration,2020,Du Ky,0
+0
 8934974148609,Lat Leo Tieng Viet,288,Le Minh Quoc,2017,HAI HUOC - TRUYEN CUOI,0
 20
 8934974148609-1,0,Ngan 1
@@ -43,59 +47,67 @@
 8935236423359-18,0,Ngan 2
 8935236423359-19,0,Ngan 2
 8935236423359-20,0,Ngan 2
+2990436004322,Ke Toan Tai Chinh,896,Nhieu Tac Gia,2018,Kiem Toan,0
+0
+8936086230999,Dao Mo Ra Quy,672,Quan Tu Tai Da,2022,Kinh Di- Huyen Bi,0
+0
+8935086845998,Lam Dieu Quan Trong,296,John Doerr,2018,Kinh Te,0
+0
+8935086849903,Hieu Ve Trai Tim,480,Minh Niem,2019,Ky Nang Song,0
+0
+8934974150510,Tren Duong Bang,308,Tony Buoi Sang,2017,Ky Nang Song,0
+0
+8936066685412,Tu Duy Phan Bien,172,Zoe McKey,2018,Ky Nang Song,0
+0
+123,Hom Nay An Gi,20,Vu,2022,Nau An,0
+6
+123-1,0,Ngan 3
+123-2,0,Ngan 3
+123-3,0,Ngan 3
+123-4,0,Ngan 3
+123-5,0,Ngan 3
+123-6,0,Ngan 3
+8935212349208,Ben Xe,284,Thuong Thai Vi,2020,Ngon Tinh,0
+0
+111,Yeu Nhau K,200,Nguyen Tan Vu,2022,Ngon Tinh,-858993460
+0
+9786045526200,Benh Bong,22,Daniel Miyares,2021,TRUYEN TRANH THIEU NHI,0
+0
 8935244869583,Co Tich The Gioi Hay Nhat,156,Nhieu Tac Gia,2022,TRUYEN TRANH THIEU NHI,0
 0
 8935236425070,Hoang Tu Be,112,Vu Thi Thu Ha,2021,TRUYEN TRANH THIEU NHI,0
-0
-9786045526200,Benh Bong,22,Daniel Miyares,2021,TRUYEN TRANH THIEU NHI,0
 0
 8935244864236,Tet oi Tet Dau Roi?,36,Thao le,2022,TRUYEN TRANH THIEU NHI,0
 0
 9786045567357,Tran Ngap Ca Rot,36,Katy Hudson,2020,TRUYEN TRANH THIEU NHI,0
 0
-9786043380293,Vuon Co Tich - Pinocchio,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
-0
 9786043380286,Vuon Co Tich - Hoang Tu Ech,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
 0
-8936067603057,Hieu Ung Den Gas,432,Robin Stern,2020,Tam Ly,0
+9786043380293,Vuon Co Tich - Pinocchio,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
 0
 8935325002922,Giai Ma Giac Mo,352,Cao Minh,2021,Tam Ly,0
+0
+8936067603057,Hieu Ung Den Gas,432,Robin Stern,2020,Tam Ly,0
 0
 8935235232822,Nghien Cuu Tam Ly Hoc,348,Sigmund Freud,2022,Tam Ly,0
 0
 8935251408492,Trong Chop Mat,376,Malcolm Gladwell,2018,Tam Ly,0
 0
-8934974150510,Tren Duong Bang,308,Tony Buoi Sang,2017,Ky Nang Song,0
-0
-8935086849903,Hieu Ve Trai Tim,480,Minh Niem,2019,Ky Nang Song,0
-0
-8936066685412,Tu Duy Phan Bien,172,Zoe McKey,2018,Ky Nang Song,0
-0
-8935086845998,Lam Dieu Quan Trong,296,John Doerr,2018,Kinh Te,0
-0
-2990436004322,Ke Toan Tai Chinh,896,Nhieu Tac Gia,2018,Kiem Toan,0
-0
-8935325000980,Tu Dien Tieng Em,280,Kho Tu Dien,2021,Truyen Ngan,0
+8936071673770,Ba Nguoi Ban,532,Erich Maria,2016,Tieu Thuyet,0
 0
 8936186547980,Mua Thanh Xuan,344,HH Jelly,2020,Tieu Thuyet,0
 0
-8936071673770,Ba Nguoi Ban,532,Erich Maria,2016,Tieu Thuyet,0
+9786047796854,Thien Hon,366,Cao Minh,2021,Tieu Thuyet,0
 0
 8935270701413,Xu Tram Huong,540,Quach Tan,2016,Tieu Thuyet,0
 0
-8935235211926,Gai Phuot,316,Yem Dao Lang Lo,2017,Du Ky,0
-0
-8935244846850,Kaa Du Ky,164,Kaa Illustration,2020,Du Ky,0
-0
-9786047796854,Thien Hon,366,Cao Minh,2021,Tieu Thuyet,0
-0
 8935270701413,Xu Tram Huong,540,Quach Tan,2019,Tieu Thuyet,0
 0
-8936086230999,Dao Mo Ra Quy,672,Quan Tu Tai Da,2022,Kinh Di- Huyen Bi,0
-0
-8935212349208,Ben Xe,284,Thuong Thai Vi,2020,Ngon Tinh,0
+8935212348591,Don Phuong,532,Keigo Higashino,2019,Trinh Tham,0
 0
 8935250707336,Sau Gio Hoc,320,Keigo Higashino,2021,Trinh Tham,0
 0
-8935212348591,Don Phuong,532,Keigo Higashino,2019,Trinh Tham,0
+8935325000980,Tu Dien Tieng Em,280,Kho Tu Dien,2021,Truyen Ngan,0
+0
+9999,Anh Yeu Em,15,Yen Ngan,2022,Ngon Tinh,-858993460
 0

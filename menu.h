@@ -6,7 +6,7 @@
 char menu[][50] =
 {
 	"QUAN LI DOC GIA            ",
-	"DAU SACH                   ",
+	"QUAN LI DAU SACH                   ",
 	"MUON SACH                  ",
 	"TRA SACH                   ",
 	"LAM MAT SACH               ",
@@ -29,79 +29,80 @@ char menuDS[][50] =
 	"Xoa doc gia             ",
 	"Hieu chinh doc gia      ",
 };
-void menuDocGia(treeDG &t) {
-	ShowCur(0);
-	bool flagDG = true;
-	int chon, sum = 4;
-	while (flagDG) {
-		chon = MenuDong(menuDG, sum, 3, 40);
-		switch (chon) {
-		case 1: {
-			textcolor(3);
-			DG a;
-			ifstream inMaDG("MaDG.txt");
-			ofstream inTam("tam.txt");
-			inMaDG >> a.maThe;
-			cin >> a;
-			themDocGia(t, a);
-			int tam;
-			/*while (inMaDG >> tam) {
-				if (tam != a.maThe) {
-					inTam << tam << " ";
-				}
-			}*/
-			inMaDG.close();
-			inTam.close();
-			/*remove("MaDG.txt");
-			rename("tam.txt", "MaDG.txt");*/
-			system("cls");
-			break;
-		}
-		case 2: {
-			yXuat = 10;
-			SetBGColor(0);
-			system("cls");
-			BangDS_DocGia();
-			gotoXY(0, 0);
-			cout << "Nhap lua chon: ";
-			int c;
-			cin>>c;
-			if (c == 1) {
-				xuatDG_theoMa(t);
-			}
-			else
-			{
-				xuatDG_theoTen(t);
-			}
-			char x = _getch();
-			break;
-		}
-		case 3: {
-			SetBGColor(0);
-			system("cls");
-			cout << "Nhap ma the can xoa: ";
-			int n;
-			cin >> n;
-			//xoaDocGia(t, n);
-			cout << "Da xoa!!!";
-			system("pause");
-		}
-		case 4: {
-			SetBGColor(0);
-			system("cls");
-			cout << "Nhap ma the can thay doi: ";
-			int n;
-			cin >> n;
-			hieuchinhDG(t, n);
-			cout << "Da hieu chinh!!!";
-			system("pause");
-		}
-		default: break;
-		}
-	}
-}
+//void menuDocGia(treeDG &t) {
+//	ShowCur(0);
+//	bool flagDG = true;
+//	int chon, sum = 4;
+//	while (flagDG) {
+//		chon = MenuDong(menuDG, sum, 3, 40);
+//		switch (chon) {
+//		case 1: {
+//			textcolor(3);
+//			DG a;
+//			ifstream inMaDG("MaDG.txt");
+//			ofstream inTam("tam.txt");
+//			inMaDG >> a.maThe;
+//			cin >> a;
+//			themDocGia(t, a);
+//			int tam;
+//			/*while (inMaDG >> tam) {
+//				if (tam != a.maThe) {
+//					inTam << tam << " ";
+//				}
+//			}*/
+//			inMaDG.close();
+//			inTam.close();
+//			/*remove("MaDG.txt");
+//			rename("tam.txt", "MaDG.txt");*/
+//			system("cls");
+//			break;
+//		}
+//		case 2: {
+//			yXuat = 10;
+//			SetBGColor(0);
+//			system("cls");
+//			BangDS_DocGia();
+//			gotoXY(0, 0);
+//			cout << "Nhap lua chon: ";
+//			int c;
+//			cin>>c;
+//			if (c == 1) {
+//				xuatDG_theoMa(t);
+//			}
+//			else
+//			{
+//				xuatDG_theoTen(t);
+//			}
+//			char x = _getch();
+//			break;
+//		}
+//		case 3: {
+//			SetBGColor(0);
+//			system("cls");
+//			cout << "Nhap ma the can xoa: ";
+//			int n;
+//			cin >> n;
+//			//xoaDocGia(t, n);
+//			cout << "Da xoa!!!";
+//			system("pause");
+//		}
+//		case 4: {
+//			SetBGColor(0);
+//			system("cls");
+//			cout << "Nhap ma the can thay doi: ";
+//			int n;
+//			cin >> n;
+//			hieuchinhDG(t, n);
+//			cout << "Da hieu chinh!!!";
+//			system("pause");
+//		}
+//		default: break;
+//		}
+//	}
+//}
 void menuDocGia2(treeDG& t) {
 	ShowCur(0);
+	char check=NULL;
 	bool flagDG = true; // bien dung de ngat vong while va quay ve menu chinh
 	int chon, sum = 4;
 	while (flagDG) {
@@ -111,16 +112,22 @@ void menuDocGia2(treeDG& t) {
 		system("cls");
 		BangDS_DocGia();
 		gotoXY(0, 0);
-		xuatDG_theoMa(t);
-		char k = _getch();
+		xuatDG_theoMa(t,check);
+		char k;
+		if (check == NULL) {
+			k=_getch();
+		}
+		else k = check;
 		switch (k) {
-		case 49:{
+		case PHIM1:{
+			check = NULL;
 			system("cls");
-			xuatDG_theoTen(t);
+			xuatDG_theoTen(t,check);
 			_getch();
 			break;
 		}
-		case 50: {
+		case PHIM2:{
+			check = NULL;
 			textcolor(3);
 			DG a;
 			ifstream inMaDG("MaDG.txt");
@@ -142,7 +149,8 @@ void menuDocGia2(treeDG& t) {
 			system("cls");
 			break;
 		}
-		case 51: {
+		case PHIM3: {
+			check = NULL;
 			ShowCur(1);
 			textcolor(3);
 			BangXoa();
@@ -176,7 +184,8 @@ void menuDocGia2(treeDG& t) {
 			c = _getch();
 			break;
 		}
-		case 52: {
+		case PHIM4: {
+			check = NULL;
 			ShowCur(1);
 			textcolor(3);
 			BangHieuChinh();
@@ -196,7 +205,7 @@ void menuDocGia2(treeDG& t) {
 			char c = _getch();
 			break;
 		}
-		case 27: {
+		case ESC: {
 			flagDG = false;
 			break;
 		}
@@ -205,10 +214,42 @@ void menuDocGia2(treeDG& t) {
 }
 void menuDauSach(listDauSach& ds) {
 	ShowCur(0);
+	char check = NULL;
 	int chon, sum = 4;
-	while (1) {
+	bool flagDS=true;
+	while (flagDS) {
 		SetBGColor(0);
-		xuatDauSach(ds);
+		xuatDauSach(ds,check);
+		if (check == ESC) return;
+		char k=check;
+		if (check == NULL) {
+			k = _getch();
+		}
+		else k = check;
+		switch (k)
+		{
+		case PHIM1: {
+			nhapDS(ds);
+			ghi_file_Dau_Sach(ds);
+			break;
+		}
+		case PHIM2: {
+			BangNhap("NHAP TEN SACH");
+			string s = "";
+			s = nhapChu(180,6,s);
+			TIM_DS_THEO_TEN(ds,s);
+			break;
+		}
+		case PHIM3: {
+			themSach(ds);
+			ghi_file_Dau_Sach(ds);
+			break;
+		}
+		case ESC: {
+			flagDS = false;
+			break;
+		}
+		}
 		_getch();
 	}
 }
