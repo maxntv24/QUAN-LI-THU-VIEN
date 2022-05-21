@@ -38,6 +38,14 @@ void BangDS_DocGia() { // bang danh sach doc gia
 	gotoXY(110, 8);
 	cout << "TRANG THAI";
 }
+void xoaBangDG() {
+	for (int i = 5; i <= 150; i++) {  // ve canh ngang
+		for (int j = 7; j <= 42; j++) { // ve canh doc
+			gotoXY(i, j);
+			cout << " ";
+		}
+	}
+}
 void BangNhapDG() {
 	for (int i = 160; i <= 200; i++) {// ve canh ngang
 		gotoXY(i, 5);
@@ -99,6 +107,7 @@ void BangXoa() {
 		gotoXY(200, i);
 		cout << char(219);
 	}
+	textcolor(14);
 	gotoXY(162,8);
 	cout << "NHAP MA DOC GIA";
 	gotoXY(162, 10);
@@ -191,6 +200,15 @@ void BangDauSACH1() { // bang danh sach doc gia
 	gotoXY(130, 8);
 	cout << "THE LOAI";
 }
+void XoaBangDauSACH1() { // bang danh sach doc gia
+	
+	for (int i = 5; i <= 150; i++) {  // ve canh ngang
+		for (int j = 7; j <= 41; j++) { // ve canh doc
+			gotoXY(i, j);
+			cout << " ";
+		}
+	}
+}
 void BangNhapDauSach() {
 	system("cls");
 	textcolor(3);
@@ -222,7 +240,7 @@ void BangNhapDauSach() {
 }
 void BangDauSACH2() { // bang danh sach doc gia
 	textcolor(9);
-	for (int i = 5; i <= 190; i++) {  // ve canh ngang
+	for (int i = 5; i <= 166; i++) {  // ve canh ngang
 		gotoXY(i, 7);
 		cout << char(220);
 		gotoXY(i, 9);
@@ -247,8 +265,7 @@ void BangDauSACH2() { // bang danh sach doc gia
 		cout << char(219);
 		gotoXY(166, i);
 		cout << char(219);
-		gotoXY(190, i);
-		cout << char(219);
+		
 	}
 	textcolor(14);
 	gotoXY(10, 8);
@@ -265,8 +282,15 @@ void BangDauSACH2() { // bang danh sach doc gia
 	cout << "THE LOAI";
 	gotoXY(152, 8);
 	cout << "SO LUONG CON";
-	gotoXY(175, 8);
-	cout << "MA SACH";
+}
+void XoaBangDauSACH2() { // bang danh sach doc gia
+
+	for (int i = 5; i <= 166; i++) {  // ve canh ngang
+		for (int j = 7; j <= 41; j++) { // ve canh doc
+			gotoXY(i, j);
+			cout << " ";
+		}
+	}
 }
 void BangNhap(string s) {
 	textcolor(9);
@@ -327,10 +351,106 @@ void BangNhapSACH() {
 	cout << "VI TRI";
 
 }
+void bangDMS() {
+	textcolor(9);
+	for (int i = 5; i <= 75; i++) {  // ve canh ngang
+		gotoXY(i, 7);
+		cout << char(220);
+		gotoXY(i, 9);
+		cout << char(220);
+		gotoXY(i, 41);
+		cout << char(223);
+	}
+	for (int i = 8; i <= 40; i++) { // ve canh doc
+		gotoXY(5, i);
+		cout << char(219);
+		gotoXY(24, i);
+		cout << char(219);
+		gotoXY(60, i);
+		cout << char(219);
+		gotoXY(75, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(10, 8);
+	cout << "MA SACH";
+	gotoXY(34, 8);
+	cout << "TRANG THAI";
+	gotoXY(64, 8);
+	cout << "VI TRI";
+	gotoXY(84, 8);
+}
 void XoaBangSACH() {
 	textcolor(0);
 	for (int x = 160; x <= 200; x++) {// ve canh ngang
 		for (int y = 11; y <= 15; y++) {
+			gotoXY(x, y);
+			cout << " ";
+		}
+	}
+}
+void BangMuonSach() {
+	textcolor(9);
+	for (int i = 5; i <= 90; i++) {  // ve canh ngang
+		gotoXY(i, 7);
+		cout << char(220);
+		gotoXY(i, 9);
+		cout << char(220);
+		gotoXY(i, 41);
+		cout << char(223);
+	}
+	for (int i = 8; i <= 40; i++) { // ve canh doc
+		gotoXY(5, i);
+		cout << char(219);
+		gotoXY(23, i);
+		cout << char(219);
+		gotoXY(40, i);
+		cout << char(219);
+		gotoXY(60, i);
+		cout << char(219);
+		gotoXY(90, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(10, 8);
+	cout << "MA THE";
+	gotoXY(26, 8);
+	cout << "NGAY MUON";
+	gotoXY(47, 8);
+	cout << "NGAY TRA";
+	gotoXY(70, 8);
+	cout << "TRANG THAI";
+}
+void xoaBangMuonSach() {
+	for (int i = 5; i <= 90; i++) {  // ve canh ngang
+		for (int j = 8; j <= 41; j++) { // ve canh doc
+			gotoXY(i, j);
+			cout << " ";
+		}
+	}
+}
+void BangThongBao(string s) {
+	textcolor(9);
+	for (int i = 160; i <= 200; i++) {// ve canh ngang
+		gotoXY(i, 4);
+		cout << char(220);
+		gotoXY(i, 6);
+		cout << char(220);
+	}
+	for (int i = 5; i <= 6; i++) {// ve canh doc
+		gotoXY(160, i);
+		cout << char(219);
+		gotoXY(200, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(162, 5);
+	cout << s;
+}
+void XoaBangThongBao() {
+	textcolor(0);
+	for (int x = 160; x <= 200; x++) {// ve canh ngang
+		for (int y = 5; y <= 7; y++) {
 			gotoXY(x, y);
 			cout << " ";
 		}

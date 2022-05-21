@@ -23,7 +23,6 @@
 #define PHIM8 56
 #define PHIM9 57
 using namespace std;
-void ghi_file_tat_ca_doc_gia(treeDG t);
 int yXuat=10;
 // =================menu==================
 void Normal() {
@@ -73,7 +72,8 @@ int MenuDong(char td[][50], int sum,int dong,int cot) {
 			cout << td[chon];
 			break;
 		}
-		case 13: return chon + 1;
+		case ENTER: return chon + 1;
+		case ESC: return ESC;
 		}  // end switch
 	}
 }
@@ -389,7 +389,6 @@ void hieuchinhDG(treeDG &t, int x)
 		if (t->data.maThe == x)
 		{
 			cin>> t->data;
-			ghi_file_tat_ca_doc_gia(t);
 		}
 		else if (t->data.maThe < x)
 		{
@@ -453,7 +452,7 @@ void xuatDauSach(listDauSach ds,char& check) {
 			check = ESC;
 			return;
 		}
-		else if (c > '1' && c < '9') {
+		else if (c >= '1' && c <= '9') {
 			check = c;
 			return;
 		}
@@ -483,6 +482,9 @@ istream& operator>>(istream& in, dauSach& a)
 	textcolor(14);
 	ISBN:
 	check=nhapISBN(60,11,a.ISBN);
+	if (check == LEN) {
+		goto ISBN;
+	}
 	tenSach:
 	check = nhapChu(64, 13, a.tenSach);
 	if (check == LEN) {
@@ -537,7 +539,29 @@ void xuatThongTin_1_DS(dauSach a, int y) {
 	yXuat = y;
 	cout << a;
 }
+ostream& operator<<(ostream& out, DMS a) {
+	gotoXY(7, yXuat);
+	cout << a.maSach;
+	gotoXY(26, yXuat);
+	if (a.trangThai == 0) {
+		textcolor(10);
+		cout << "CHO MUON DUOC";
+	}
+	else if (a.trangThai == 1) {
+		textcolor(12);
+		cout << "DA CO NGUOI MUON";
+	}
+	else if (a.trangThai == 0) {
+		textcolor(14);
+		cout << "DA THANH LI";
+	}
+	textcolor(14);
+	gotoXY(62, yXuat);
+	cout << a.vitri;
+	return out;
+}
 int TIM_DS_THEO_TEN(listDauSach l, string ten) {
+	ShowCur(0);
 	system("cls");
 	int kt;
 	int j;
@@ -548,6 +572,7 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 	bool KT = false;
 	int y;
 	while (KT == false) {
+		XoaBangThongBao();
 		j = 0, kt = 0, vitri = 0, sl_sach = 0;
 		y = 10;
 		for (int i = 0; i < l.sl; i++) {
@@ -558,17 +583,9 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 				sl_sach = DemSachConMuonDuoc(l, l.ds_DauSach[i]->ISBN);
 				gotoXY(152, y);
 				cout << sl_sach;
-				if (sl_sach > 0) {
-					gotoXY(168, y);
-					if (sl_sach == 1) {
-						cout << l.ds_DauSach[i]->ISBN << "-1";
-					}
-					cout << l.ds_DauSach[i]->ISBN << "-(1->"<<sl_sach<<")";
-				}
-				
 				kt++;
 				DS_timthay[j] = i;
-				soluongsach[j] = tongsosach(*l.ds_DauSach[i]);
+				soluongsach[j] = tong_so_sach(*l.ds_DauSach[i]);
 				j++;
 				y++;
 			}
@@ -577,6 +594,7 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 			int k = 10;
 			bool check = true;
 			while (check) {
+				gotoXY(0, 0); cout << k;
 				gotoXY(24, k);
 				ToMau(24, k, l.ds_DauSach[DS_timthay[k - 10]]->tenSach, 12);
 				char c = _getch();
@@ -615,6 +633,21 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 				}
 				}
 			}
+			if (soluongsach[k - 10] <= 0)
+			{
+				textcolor(14);
+				BangThongBao("KHONG CO SACH");
+				continue;
+			}
+			XoaBangDauSACH2();
+			bangDMS();
+			nodeDMS* p = l.ds_DauSach[DS_timthay[k - 10]]->dms.phead;
+			yXuat = 10;
+			for (p; p != NULL; p=p->pnext) {
+				cout << p->data;
+				yXuat++;
+			}
+			_getch();
 		}
 		else
 		{
@@ -662,16 +695,16 @@ void themSach(listDS& l) {
 	int i = 0;
 	int n = 0;
 	bool flag = true;
-	while(flag) {
+	while (flag) {
 		xuatDauSach(l, check);
 		isbn = "";
 		BangNhap("NHAP ISBN");
-		kt = nhapISBN(180, 6,isbn);
+		kt = nhapISBN(180, 6, isbn);
 		i = TIM_DS_THEO_MA(l, isbn);
 		if (i == -1) {
 			gotoXY(180, 8);
 			cout << "MA KHONG TON TAI";
-			char c=_getch();
+			char c = _getch();
 		}
 		else {
 			l.ds_DauSach[i]->soLuongMuon = 0;
@@ -679,7 +712,7 @@ void themSach(listDS& l) {
 			BangNhap("SL CAN THEM");
 			gotoXY(180, 8);
 			cout << "MA TON TAI";
-			kt = nhapSo(180, 6,n);
+			kt = nhapSo(180, 6, n);
 			flag = false;
 		}
 	}
@@ -695,19 +728,200 @@ void themSach(listDS& l) {
 	}
 	BangNhapSACH();
 	gotoXY(0, 0);
-	for (int j = tam; j < n+tam; j++)
+	for (int j = tam; j < n + tam; j++)
 	{
 		if (tam == 0)
 			x.maSach = l.ds_DauSach[i]->ISBN + "-" + to_string(j + 1);
 		else
 			x.maSach = l.ds_DauSach[i]->ISBN + "-" + to_string(j + 1);
-		gotoXY(180,12);
+		gotoXY(180, 12);
 		cout << x.maSach;
-		gotoXY(180,14);
+		gotoXY(180, 14);
 		cout << vitri;
-		vitri = nhapChuVaSo(180, 14,vitri);
+		vitri = nhapChuVaSo(180, 14, vitri);
 		x.vitri = vitri;
 		x.trangThai = 0; // mặc định sách có thể mượn được
 		them_sach_vao_ds(l.ds_DauSach[i]->dms, khoitaoDMS(x));
 	}
 }
+//============MUON TRA==============
+ostream& operator<<(ostream& in, MuonTra a) {
+	gotoXY(7, yXuat);
+	cout << a.maSach;
+	gotoXY(25, yXuat);
+	cout << a.ngayMuon.ngay<<"/"<<a.ngayMuon.thang<<"/"<<a.ngayMuon.nam;
+	gotoXY(42, yXuat);
+	cout << a.ngayTra.ngay << "/" << a.ngayTra.thang << "/" << a.ngayTra.nam;
+	gotoXY(62, yXuat);
+	if (a.trangThai == 0) {
+		cout << "DANG MUON";
+	}
+	else if (a.trangThai == 1) {
+		cout << "DA TRA";
+	}
+	else {
+		cout << "LAM MAT SACH";
+	}
+	return in;
+}
+void themMuonTra(listMT& l, nodeMT* p) {
+	if (l.phead == NULL) {
+		l.phead = l.ptail = p;
+	}
+	else {
+		l.ptail->pnext = p;
+		p->pprev = l.ptail;
+		l.ptail = p;
+	}
+}
+nodeMT* khoitaoMuonTra(MuonTra x) {
+	nodeMT* p = new nodeMT;
+	p->data = x;
+	p->pprev = NULL;
+	p->pnext = NULL;
+	return p;
+}
+void xuatSachDaMuon(DG x, char& check) {
+	ShowCur(0);
+	int slSach = demSachDangMuon(x, 2);
+	int tongSoTrang = (slSach - 1) / 30 + 1;
+	int soTrang = 1;
+	for (int i = 0; i < tongSoTrang; i++) {
+		xoaBangMuonSach();
+		BangMuonSach();
+		yXuat = 10;
+		for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
+			cout << p->data;
+			yXuat++;
+		}
+		gotoXY(105, 42); cout << i + 1 << "/" << tongSoTrang;
+		char c = _getch();
+		if (c == -32) {
+			c = _getch();
+		}
+		else if (c == ESC) {
+			check = ESC;
+			return;
+		}
+		else if (c >= '1' && c <= '9') {
+			check = c;
+			return;
+		}
+		if (c == 77)
+		{
+			if (i == tongSoTrang - 1)
+				i = -1;
+		}
+		else if (c == 75)
+		{
+			if (i == 0)
+				i = tongSoTrang - 2;
+			else
+			{
+				i -= 2;
+				continue;
+			}
+		}
+	}
+}
+void nhapMuonSACH(MuonTra& x){
+	lay_thoi_gian (x.ngayMuon);
+	x.ngayTra.ngay = 0;
+	x.ngayTra.thang = 0;
+	x.ngayTra.nam = 0;
+	x.trangThai = 0; // gan trang thai = 0, vi la dang muon sach
+}
+int ktQuaHan(DocGia x) {
+	Date t;
+	lay_thoi_gian(t);
+	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
+		if (t.nam == p->data.ngayMuon.nam) {
+			if (t.thang == p->data.ngayMuon.thang) {
+				if (t.ngay - p->data.ngayMuon.ngay <= 7) {
+					return 1;
+				}
+				else return -1;
+			}
+			else return -1;
+		}
+		else return -1;
+	}
+}
+bool kt_sach_da_muon(nodeDG* p, string x)
+{
+	string s = tachISBN_tu_ma_sach(x);
+	string tam;
+	for (nodeMT* q = p->data.mt.phead; q != NULL; q = q->pnext)
+	{
+		if (q->data.trangThai == 0) // đang mượn sách
+		{
+			tam = tachISBN_tu_ma_sach(q->data.maSach);
+			if (tam == s)
+				return true;
+		}
+	}
+	return false;
+}
+int muonSACH(nodeDG* &x,listDS &l) {
+	XoaBang();
+	BangNhap("Nhap ma sach");
+	string masach;
+	int check=0;
+	masach:
+	check = nhapChuVaSo(180,6, masach);
+	if (check == LEN) {
+		goto masach;
+	}
+	else if (check == ESC) {
+		return 1;
+	}
+	bool flag = true;
+	int i = 0;
+	string ISBN;
+	while (flag) {
+		ISBN = tachISBN_tu_ma_sach(masach);
+		i = TIM_DS_THEO_MA(l, ISBN);
+		if (i == -1) // khoong tim thay
+		{
+			gotoXY(180, 8);
+			cout << "MA KHONG DUNG";
+			continue;
+		}
+		else {
+			if (kt_sach_da_muon(x, masach) == true) // ĐANG MƯỢN SÁCH THUỘC ĐS TƯƠNG TỰ
+			{
+				gotoXY(180, 8);
+				cout << "SACH NAY DA DUOC MUON";
+				continue;
+			}
+			for (nodeDMS *k = l.ds_DauSach[i]->dms.phead; k != NULL; k = k->pnext)
+			{
+				if (k->data.maSach == masach)
+				{
+					if (k->data.trangThai == 0)
+					{
+						check = true; // danh dau tim thay sach
+						k->data.trangThai = 1; // cap nhat sach co nguoi muon
+						flag = false;
+					}
+					else if (k->data.trangThai == 1)
+					{
+						gotoXY(180, 8);
+						cout << ("SACH DA CO NGUOI MUON");
+						break;
+					}
+					else if (k->data.trangThai == 2)
+					{
+						gotoXY(180, 8);
+						cout << ("SACH DA THANH LI");
+						break;
+					}
+				}
+			}
+		}
+	}
+	_getch();
+	return 1;
+}
+
+

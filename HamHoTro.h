@@ -2,6 +2,8 @@
 #include "ctdl.h"
 #include "All_function.h"
 #include "string"
+#include <windows.h>
+#pragma warning(disable : 4996)
 #define LEN 72
 #define XUONG 80
 #define TRAI 75
@@ -195,7 +197,6 @@ int nhapISBN(int x, int y,string &s) {
 		char c = _getch();
 		if (c == ESC) return ESC;
 		if (c == LEN) return  LEN;
-		if (c == XUONG) return  XUONG;
 		if (c >= '0' && c <= '9') {
 			gotoXY(x++, y);
 			cout << c;
@@ -226,7 +227,7 @@ int nhapChuVaSo(int x, int y, string& s) {
 	while (true) {
 		char c = _getch();
 		if (c == ESC) return ESC;
-		if (c == LEN) return ESC;
+		if (c == LEN) return LEN;
 		if ((c == ' ' && tam == ' ') || s.size() > 40 || (c == ' ' && s.size() < 1)) continue;
 		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ' || (c>='0' && c<='9')) {
 			gotoXY(x++, y);
@@ -255,14 +256,7 @@ int nhapChuVaSo(int x, int y, string& s) {
 	}
 	return 1;
 }
-//dem so luong sach trong 1 dau sach
-int tong_so_sach(dauSach x)
-{
-	int n = 0;
-	for (nodeDMS* p = x.dms.phead; p != NULL; p = p->pnext)
-		n++;
-	return n;
-}
+
 //===Ham hoan doi dau sach====
 void swapDS(dauSach& a,dauSach& b) {
 	dauSach tam;
@@ -281,13 +275,22 @@ int DemSachConMuonDuoc(listDauSach l,string ISBN) {
 	}
 	return n;
 }
-int tongsosach(dauSach x) {
+//dem so luong sach trong 1 dau sach
+int tong_so_sach(dauSach x)
+{
 	int n = 0;
 	for (nodeDMS* p = x.dms.phead; p != NULL; p = p->pnext)
 		n++;
 	return n;
 }
-
+// số lượng sách độc giả mượn 
+int so_sach_DG_muon(DG x)
+{
+	int n = 0;
+	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext)
+		n++;
+	return n;
+}
 // hàm có chức năng bắt phim vừa nhập để điều khiển menu
 int key(char c)
 {
@@ -319,6 +322,58 @@ int DemSoDG(treeDG t) {
 	else
 		return 1 + DemSoDG(t->pleft) + DemSoDG(t->pright);
 }
+treeDG timDG_theo_ma(treeDG t,int x) {
+	if (t != NULL)
+	{
+		if (t->data.maThe == x)
+		{
+			return t;
+		}
+		else if (t->data.maThe < x)
+		{
+			timDG_theo_ma(t->pright, x);
+		}
+		else
+		{
+			timDG_theo_ma(t->pleft, x);
+		}
+	}
+	else return NULL;
+}
+void lay_thoi_gian(Date& x) //ham lay thoi gian hiện tại
+{
+	time_t t = time(NULL);
+	tm* now = localtime(&t);
+	x.ngay = now->tm_mday;
+	x.thang = now->tm_mon + 1;
+	x.nam = now->tm_year + 1900;
+}
+int demSachDangMuon(DG x,int check) { // neu check =1 tra ve sach dang muon, neu check =2 tra ve sach da va dang muon
+	int dem1 = 0;
+	int dem2 = 0;
 
+	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
+		if (p->data.trangThai == 0) {
+			dem1++;
+		}
+		dem2++;
+	}
+	if (check == 1) {
+		return dem1;
+	}
+	else return dem2;
+}
+string tachISBN_tu_ma_sach(string a)
+{
+	string temp;
+	int n = a.length();
+	int dem = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] == '-')
+			dem = i;
+	}
+	temp = a.substr(0, dem);
 
-
+	return temp;
+}

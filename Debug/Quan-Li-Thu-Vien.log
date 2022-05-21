@@ -4,12 +4,14 @@ D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\my_lib.h(27,29): warning C4838: conver
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(11,2): warning C4091: 'typedef ': ignored on left of 'DanhMucSach' when no variable is declared
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(22,2): warning C4091: 'typedef ': ignored on left of 'listDanhMucSach' when no variable is declared
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(53,2): warning C4091: 'typedef ': ignored on left of 'MuonTra' when no variable is declared
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(48,20): warning C4018: '<': signed/unsigned mismatch
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(59,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(50,20): warning C4018: '<': signed/unsigned mismatch
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(61,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(83,6): warning C4101: 'i': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\doc_ghi_file.h(11,6): warning C4101: 'tam': unreferenced local variable
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(107,6): warning C4101: 'chon': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(218,6): warning C4101: 'chon': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(308): warning C4715: 'key': not all control paths return a value
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(626): warning C4715: 'TIM_DS_THEO_TEN': not all control paths return a value
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(220,6): warning C4101: 'chon': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(261,6): warning C4101: 'chon': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(311): warning C4715: 'key': not all control paths return a value
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(342): warning C4715: 'timDG_theo_ma': not all control paths return a value
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(659): warning C4715: 'TIM_DS_THEO_TEN': not all control paths return a value
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(849): warning C4715: 'ktQuaHan': not all control paths return a value
   Quan-Li-Thu-Vien.vcxproj -> D:\CTDL\Quan-Li-Thu-Vien\Debug\Quan-Li-Thu-Vien.exe
