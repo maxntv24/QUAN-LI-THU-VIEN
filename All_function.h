@@ -456,12 +456,12 @@ void xuatDauSach(listDauSach ds,char& check) {
 			check = c;
 			return;
 		}
-		if (c == 77)
+		if (c == PHAI)
 		{
 			if (i == tongSoTrang - 1)
 				i = -1;
 		}
-		else if (c == 75)
+		else if (c == TRAI)
 		{
 			if (i == 0)
 				i = tongSoTrang - 2;
@@ -696,7 +696,6 @@ void themSach(listDS& l) {
 	int n = 0;
 	bool flag = true;
 	while (flag) {
-		xuatDauSach(l, check);
 		isbn = "";
 		BangNhap("NHAP ISBN");
 		kt = nhapISBN(180, 6, isbn);
@@ -738,7 +737,7 @@ void themSach(listDS& l) {
 		cout << x.maSach;
 		gotoXY(180, 14);
 		cout << vitri;
-		vitri = nhapChuVaSo(180, 14, vitri);
+		check = nhapChuVaSo(180, 14, vitri);
 		x.vitri = vitri;
 		x.trangThai = 0; // mặc định sách có thể mượn được
 		them_sach_vao_ds(l.ds_DauSach[i]->dms, khoitaoDMS(x));
@@ -862,39 +861,47 @@ bool kt_sach_da_muon(nodeDG* p, string x)
 	}
 	return false;
 }
-int muonSACH(nodeDG* &x,listDS &l) {
+int muonSACH(nodeDG* &dg,listDS &l) {
 	XoaBang();
 	BangNhap("Nhap ma sach");
 	string masach;
 	int check=0;
-	masach:
-	check = nhapChuVaSo(180,6, masach);
-	if (check == LEN) {
-		goto masach;
-	}
-	else if (check == ESC) {
-		return 1;
-	}
 	bool flag = true;
-	int i = 0;
-	string ISBN;
 	while (flag) {
+	masach:
+		BangNhap("NHAP MA SACH");
+		check = nhapMaSach(180, 6, masach);
+		if (check == LEN) {
+			goto masach;
+		}
+		else if (check == ESC) {
+			return 1;
+		}
+		int i = 0;
+		string ISBN;
 		ISBN = tachISBN_tu_ma_sach(masach);
+		
 		i = TIM_DS_THEO_MA(l, ISBN);
 		if (i == -1) // khoong tim thay
 		{
 			gotoXY(180, 8);
 			cout << "MA KHONG DUNG";
+			_getch();
+			masach = "";
+			XoaBang();
 			continue;
 		}
 		else {
-			if (kt_sach_da_muon(x, masach) == true) // ĐANG MƯỢN SÁCH THUỘC ĐS TƯƠNG TỰ
+			if (kt_sach_da_muon(dg, masach) == true) // ĐANG MƯỢN SÁCH THUỘC ĐS TƯƠNG TỰ
 			{
 				gotoXY(180, 8);
-				cout << "SACH NAY DA DUOC MUON";
-				continue;
+				cout << "SACH NAY DA MUON";
+				_getch();
+				XoaBang();
+				masach = "";
+				goto masach;
 			}
-			for (nodeDMS *k = l.ds_DauSach[i]->dms.phead; k != NULL; k = k->pnext)
+			for (nodeDMS* k = l.ds_DauSach[i]->dms.phead; k != NULL; k = k->pnext)
 			{
 				if (k->data.maSach == masach)
 				{
@@ -903,6 +910,9 @@ int muonSACH(nodeDG* &x,listDS &l) {
 						check = true; // danh dau tim thay sach
 						k->data.trangThai = 1; // cap nhat sach co nguoi muon
 						flag = false;
+						gotoXY(180, 8);
+						cout << ("DA MUON");
+						break;
 					}
 					else if (k->data.trangThai == 1)
 					{
@@ -918,9 +928,18 @@ int muonSACH(nodeDG* &x,listDS &l) {
 					}
 				}
 			}
+			if (flag == false)
+			{
+				// thêm vào danh sách mượn trả
+				MuonTra x;
+				x.maSach = masach;
+				l.ds_DauSach[i]->soLuongMuon++; // tăng số lượng mượn cuốn sách
+				nhapMuonSACH(x);
+				themMuonTra(dg->data.mt, khoitaoMuonTra(x));
+				return 1;
+			}
 		}
 	}
-	_getch();
 	return 1;
 }
 

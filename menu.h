@@ -111,7 +111,6 @@ void menuDocGia2(treeDG& t) {
 		SetBGColor(0);
 		system("cls");
 		BangDS_DocGia();
-		gotoXY(0, 0);
 		xuatDG_theoMa(t,check);
 		char k;
 		if (check == NULL) {
@@ -222,20 +221,20 @@ void menuDauSach(listDauSach& ds) {
 	while (flagDS) {
 		SetBGColor(0);
 		xuatDauSach(ds,check);
-		if (check == ESC) return;
-		char k=check;
+		char k;
 		if (check == NULL) {
 			k = _getch();
 		}
 		else k = check;
-		switch (k)
-		{
+		switch (k){
 		case PHIM1: {
+			check = NULL;
 			nhapDS(ds);
 			ghi_file_Dau_Sach(ds);
 			break;
 		}
 		case PHIM2: {
+			check = NULL;
 			BangNhap("NHAP TEN SACH");
 			string s = "";
 			check = nhapChu(180,6,s);
@@ -243,7 +242,10 @@ void menuDauSach(listDauSach& ds) {
 			break;
 		}
 		case PHIM3: {
+			
+			check = NULL;
 			themSach(ds);
+			
 			ghi_file_Dau_Sach(ds);
 			break;
 		}
@@ -289,6 +291,7 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 		else k = check;
 		switch (k) {
 		case PHIM1: {
+			check = NULL;
 			if (demSachDangMuon(p->data,1) >= 3) {
 				gotoXY(180, 8);
 				cout << "KHONG THE MUON HON 3 CUON";
@@ -305,6 +308,8 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 				check=muonSACH(p,l);
 				ghi_file_Dau_Sach(l);
 				GHI_FILE_DS_DG(t);
+				check = _getch();
+				break;
 			}
 		}
 		case ESC: {
@@ -323,10 +328,9 @@ void menuChinh() {
 	cout << "a";
 	load_file_Doc_Gia(t);
 	cout << "a";
-
-	ShowCur(0);
 	int chon, sum = 9;
 	while (1) {
+		ShowCur(0);
 		system("cls");
 		chon = MenuDong(menu, sum,3,3);
 		switch (chon) {

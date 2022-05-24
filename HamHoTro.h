@@ -126,7 +126,6 @@ int nhapChu(int x,int y,string &s) {
 		char c = _getch();
 		if (c == ESC) return ESC;
 		if (c == LEN) return LEN;
-		if (c == XUONG) return  XUONG;
 		if ((c == ' ' && tam == ' ') || s.size() > 40  || (c == ' ' && s.size()<1)) continue;
 		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ' ) {
 			gotoXY(x++, y);
@@ -256,7 +255,49 @@ int nhapChuVaSo(int x, int y, string& s) {
 	}
 	return 1;
 }
-
+int nhapMaSach(int x, int y, string& s) {
+	gotoXY(x, y);
+	ShowCur(1);
+	cout << s;
+	x = x + s.size();
+	gotoXY(x, y);
+	char tam;
+	if (s.size() > 0) {
+		tam = s.back();
+	}
+	else tam = ' ';
+	while (true) {
+		char c = _getch();
+		if (c == ESC) return ESC;
+		if (c == LEN) return LEN;
+		if ((c == ' ' && tam == ' ') || s.size() > 40 || (c == ' ' && s.size() < 1)) continue;
+		if ((c >= '0' && c <= '9')|| c=='-') {
+			gotoXY(x++, y);
+			if (s.size() < 1 || s[s.size() - 1] == ' ') {
+				cout << chuyenChuThuongThanhHoa(c);
+				s = s + chuyenChuThuongThanhHoa(c);
+			}
+			else {
+				cout << c;
+				s = s + c;
+			}
+		}
+		if (c == ENTER) break;
+		if (c == 8 && s.size() > 0) {
+			gotoXY(--x, y);
+			cout << ' ';
+			gotoXY(x, y);
+			s.pop_back();
+		}
+		tam = c;
+	}
+	if (s.size() > 0) {
+		while (s.back() == ' ') {
+			s.pop_back();
+		}
+	}
+	return 1;
+}
 //===Ham hoan doi dau sach====
 void swapDS(dauSach& a,dauSach& b) {
 	dauSach tam;
@@ -376,4 +417,9 @@ string tachISBN_tu_ma_sach(string a)
 	temp = a.substr(0, dem);
 
 	return temp;
+}
+void test(string s) {
+	gotoXY(0, 0);
+	cout << s;
+	_getch();
 }
