@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "my_lib.h"
 #include "All_function.h"
 #include "doc_ghi_file.h"
@@ -6,14 +6,10 @@
 char menu[][50] =
 {
 	"QUAN LI DOC GIA            ",
-	"QUAN LI DAU SACH                   ",
-	"MUON SACH                  ",
-	"TRA SACH                   ",
-	"LAM MAT SACH               ",
-	"TIM SACH DOC GIA DANG MUON ",
+	"QUAN LI DAU SACH           ",
+	"QUAN LI MUON TRA           ",
 	"DANH SACH DOC GIA QUA HAN  ",
 	"TOP 10 SACH MUON NHIEU NHAT",
-	"THOAT  CHUONG TRINH        "
 };
 char menuDG[][50] =
 {
@@ -118,14 +114,14 @@ void menuDocGia2(treeDG& t) {
 		}
 		else k = check;
 		switch (k) {
-		case PHIM1:{
+		case PHIM1:{  // xuat theo ten tang dan
 			check = NULL;
 			system("cls");
 			xuatDG_theoTen(t,check);
 			_getch();
 			break;
 		}
-		case PHIM2:{
+		case PHIM2:{  // them doc gia
 			check = NULL;
 			textcolor(3);
 			DG a;
@@ -148,15 +144,15 @@ void menuDocGia2(treeDG& t) {
 			system("cls");
 			break;
 		}
-		case PHIM3: {
+		case PHIM3: {   // xoa doc gia
 			check = NULL;
 			ShowCur(1);
 			textcolor(3);
 			BangXoa();
 			textcolor(14);
-			int x;
-			gotoXY(182, 8);
-			cin >> x;
+			int x=0;
+			check = nhapSo(182, 8, x);
+			if (check == ESC) break;
 			gotoXY(182, 10);
 			cout << "CHAC CHAN (y/n)";
 			char c;
@@ -184,14 +180,15 @@ void menuDocGia2(treeDG& t) {
 			c = _getch();
 			break;
 		}
-		case PHIM4: {
+		case PHIM4: {     // hieu chinh doc gia
 			check = NULL;
 			ShowCur(1);
 			textcolor(3);
 			BangHieuChinh();
-			int n;
+			int n=0;
 			gotoXY(182, 8);
-			cin >> n;
+			check = nhapSo(182, 8, n);
+			if (check == ESC) break;
 			xoaBangHieuChinh();
 			hieuchinhDG(t, n);
 			XoaBangNhapDG();
@@ -205,7 +202,7 @@ void menuDocGia2(treeDG& t) {
 			char c = _getch();
 			break;
 		}
-		case ESC: {
+		case ESC: {  //thoat
 			flagDG = false;
 			break;
 		}
@@ -227,13 +224,13 @@ void menuDauSach(listDauSach& ds) {
 		}
 		else k = check;
 		switch (k){
-		case PHIM1: {
+		case PHIM1: {   // nhap dau sach
 			check = NULL;
 			nhapDS(ds);
 			ghi_file_Dau_Sach(ds);
 			break;
 		}
-		case PHIM2: {
+		case PHIM2: {    //tim sach theo ten sach
 			check = NULL;
 			BangNhap("NHAP TEN SACH");
 			string s = "";
@@ -241,11 +238,9 @@ void menuDauSach(listDauSach& ds) {
 			TIM_DS_THEO_TEN(ds,s);
 			break;
 		}
-		case PHIM3: {
-			
+		case PHIM3: {  // them sach vao dau sach
 			check = NULL;
 			themSach(ds);
-			
 			ghi_file_Dau_Sach(ds);
 			break;
 		}
@@ -265,6 +260,9 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 		SetBGColor(0);
 		textcolor(14);
 		xuatDG_theoMa(t, check);
+		if (check == ESC) {
+			return;
+		}
 		BangNhap("NHAP MA THE");
 		int mathe=0;
 		char check = NULL;
@@ -280,37 +278,61 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 			continue;
 		}
 		xuatSachDaMuon(p->data,check);
-		if (p->data.mt.phead == NULL) {
-			gotoXY(180, 8);
-			cout << "CHUA MUON SACH";
-		}
 		char k;
 		if (check == NULL) {
 			k = _getch();
 		}
 		else k = check;
 		switch (k) {
-		case PHIM1: {
+		case PHIM1: {    // muon sach
 			check = NULL;
 			if (demSachDangMuon(p->data,1) >= 3) {
 				gotoXY(180, 8);
 				cout << "KHONG THE MUON HON 3 CUON";
 				check=_getch();
-				break;
 			}
 			else if (ktQuaHan(p->data) == -1) {
 				gotoXY(180, 8);
 				cout << "CO SACH MUON QUA HAN";
 				check = _getch();
-				break;
 			}
 			else {
 				check=muonSACH(p,l);
 				ghi_file_Dau_Sach(l);
 				GHI_FILE_DS_DG(t);
 				check = _getch();
-				break;
 			}
+			break;
+		}
+		case PHIM2: {   // tra sach
+			check = NULL;
+			if (demSachDangMuon(p->data, 1) == 0) {
+				gotoXY(180, 8);
+				cout << "CHUA MUON SACH NAO";
+				check = _getch();
+			}
+			else {
+				traSach(p, l);
+				ghi_file_Dau_Sach(l);
+				GHI_FILE_DS_DG(t);
+				check = _getch();
+			}
+			break;
+		}
+		case PHIM3: {   // lam mat sach
+			check = NULL;
+			if (demSachDangMuon(p->data, 1) == 0) {
+				gotoXY(180, 8);
+				cout << "CHUA MUON SACH NAO";
+				check = _getch();
+			}
+			else {
+				lamMatSach(p, l);
+				ghi_file_Dau_Sach(l);
+				GHI_FILE_DS_DG(t);
+				check = _getch();
+			}
+			break;
 		}
 		case ESC: {
 			flagDG = false;
@@ -328,11 +350,11 @@ void menuChinh() {
 	cout << "a";
 	load_file_Doc_Gia(t);
 	cout << "a";
-	int chon, sum = 9;
+	int chon;
 	while (1) {
 		ShowCur(0);
 		system("cls");
-		chon = MenuDong(menu, sum,3,3);
+		chon = MenuDong(menu, 5,3,3);
 		switch (chon) {
 		case 1: {
 			menuDocGia2(t);
@@ -343,7 +365,16 @@ void menuChinh() {
 			break;
 		}
 		case 3: {
-			menuMuonTra(t,ds);
+			menuMuonTra(t, ds);
+			break;
+		}
+		case 4: {
+			dsQuaHan(ds,t);
+			break;
+		}
+		case 5: {
+			top10sach(ds);
+			_getch();
 			break;
 		}
 		case ESC: {

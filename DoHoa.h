@@ -413,7 +413,7 @@ void BangMuonSach() {
 	}
 	textcolor(14);
 	gotoXY(10, 8);
-	cout << "MA THE";
+	cout << "MA SACH";
 	gotoXY(26, 8);
 	cout << "NGAY MUON";
 	gotoXY(47, 8);
@@ -455,4 +455,88 @@ void XoaBangThongBao() {
 			cout << " ";
 		}
 	}
+}
+void bangQuaHan() {
+	textcolor(9);
+	for (int i = 5; i <= 136; i++) {  // ve canh ngang
+		gotoXY(i, 7);
+		cout << char(220);
+		gotoXY(i, 9);
+		cout << char(220);
+		gotoXY(i, 41);
+		cout << char(223);
+	}
+	for (int i = 8; i <= 40; i++) { // ve canh doc
+		gotoXY(5, i);
+		cout << char(219);
+		gotoXY(19, i);
+		cout << char(219);
+		gotoXY(50, i);
+		cout << char(219);
+		gotoXY(100, i);
+		cout << char(219);
+		gotoXY(118, i);
+		cout << char(219);
+		gotoXY(136, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(7, 8);
+	cout << "MA DOC GIA";
+	gotoXY(30, 8);
+	cout << "TEN DOC GIA ";
+	gotoXY(72, 8);
+	cout << "TEN SACH";
+	gotoXY(105, 8);
+	cout << "NGAY MUON";
+	gotoXY(120, 8);
+	cout << "SO NGAY QUA HAN";
+}
+void BangTop10() { // bang danh sach doc gia
+	textcolor(9);
+	for (int i = 5; i <= 172; i++) {  // ve canh ngang
+		gotoXY(i, 7);
+		cout << char(220);
+		gotoXY(i, 9);
+		cout << char(220);
+		gotoXY(i, 41);
+		cout << char(223);
+	}
+	for (int i = 8; i <= 40; i++) { // ve canh doc
+		gotoXY(5, i);
+		cout << char(219);
+		gotoXY(22, i);
+		cout << char(219);
+		gotoXY(60, i);
+		cout << char(219);
+		gotoXY(75, i);
+		cout << char(219);
+		gotoXY(100, i);
+		cout << char(219);
+		gotoXY(116, i);
+		cout << char(219);
+		gotoXY(150, i);
+		cout << char(219);
+		gotoXY(166, i);
+		cout << char(219);
+		gotoXY(172, i);
+		cout << char(219);
+	}
+	textcolor(14);
+	gotoXY(10, 8);
+	cout << "ISBN";
+	gotoXY(34, 8);
+	cout << "TEN SACH";
+	gotoXY(64, 8);
+	cout << "SO TRANG";
+	gotoXY(84, 8);
+	cout << "TAC GIA";
+	gotoXY(102, 8);
+	cout << "NAM XUAT BAN";
+	gotoXY(130, 8);
+	cout << "THE LOAI";
+	gotoXY(152, 8);
+	cout << "SO LUONG MUON";
+	gotoXY(168, 8);
+	cout << "TOP";
 }

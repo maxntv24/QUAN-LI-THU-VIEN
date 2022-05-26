@@ -389,12 +389,22 @@ void lay_thoi_gian(Date& x) //ham lay thoi gian hiện tại
 	x.thang = now->tm_mon + 1;
 	x.nam = now->tm_year + 1900;
 }
+// ham tim kiem dau sach theo ISBN neu co tra ve vi tri 
+int TIM_DS_THEO_MA(listDauSach l, string ma)
+{
+	for (int i = 0; i < l.sl; i++)
+	{
+		if (l.ds_DauSach[i]->ISBN == ma)
+			return i;
+	}
+	return -1;
+}
 int demSachDangMuon(DG x,int check) { // neu check =1 tra ve sach dang muon, neu check =2 tra ve sach da va dang muon
 	int dem1 = 0;
 	int dem2 = 0;
 
 	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
-		if (p->data.trangThai == 0) {
+		if (p->data.trangThai == 0 || p->data.trangThai == 2) {
 			dem1++;
 		}
 		dem2++;
@@ -422,4 +432,213 @@ void test(string s) {
 	gotoXY(0, 0);
 	cout << s;
 	_getch();
+}
+void intro() {
+	int mau = 0;
+	int dong = 200;
+	int cot = 49;
+	int i = 0;
+	int j = 2;
+	while (i < dong)
+	{
+		gotoXY(i + 5, 1);
+		SetColor(4);
+		cout << char(205);
+		i++;
+	}
+	gotoXY(205, 1);
+	SetColor(4);
+	cout << char(187);
+	while (j < cot)
+	{
+		gotoXY(205, j);
+		SetColor(4);
+		cout << char(186);
+
+		j++;
+	}
+	gotoXY(205, 48);
+	SetColor(4);
+	cout << char(188);
+	int a = dong;
+	while (a > 0)
+	{
+		gotoXY(a + 4, 48);
+		SetColor(4);
+		cout << char(205);
+
+		a--;
+	}
+	gotoXY(4, 48);
+	SetColor(11);
+	cout << char(200);
+	int b = cot;
+	while (b > 3)
+	{
+		gotoXY(4, b - 2);
+		SetColor(4);
+		cout << char(186);
+
+		b--;
+	}
+	gotoXY(4, 1);
+	SetColor(4);
+	cout << char(201);
+
+	string str;
+	ifstream file;
+	SetColor(11);
+	file.open("ctdl.txt", ios::in);
+	int in = 10, lap = 0;
+	while (!file.eof())
+	{
+		getline(file, str);
+		gotoXY(50, in);
+		cout << str;
+		in++;
+		lap++;
+		Sleep(100);
+	}
+	for (int i = 10; i < lap + 10; i++)
+	{
+		gotoXY(50, i);
+		cout << "                                                                          ";
+		Sleep(100);
+	}
+	file.close();
+	int cotgiua = 2;
+	while (cotgiua < cot - 1)
+	{
+		gotoXY(150, cotgiua);
+		SetColor(4);
+		cout << char(186);
+		Sleep(10);
+		cotgiua++;
+	}
+	int nganggiua = 151;
+	while (nganggiua < 205)
+	{
+		gotoXY(nganggiua, 25);
+		SetColor(4);
+		cout << char(205);
+		Sleep(10);
+		nganggiua++;
+	}
+	ifstream file1;
+	file1.open("qltv.txt", ios::in);
+	str = "";
+	in = 15;
+	SetColor(11);
+	while (!file1.eof())
+	{
+		getline(file1, str);
+		gotoXY(50, in);
+		cout << str;
+		in++;
+		Sleep(100);
+	}
+	file1.close();
+	gotoXY(55, 35);
+	SetColor(2);
+	cout << "NGUOI HUONG DAN : LUU NGUYEN KY THU ";
+	Sleep(10);
+	gotoXY(155, 5);
+	SetColor(6);
+	cout << "DAY LA DO AN KET THUC MON CAU TRUC DU LIEU VA";
+	gotoXY(155, 6);
+	SetColor(6);
+	cout << "GIAI THUAT CUA NHOM 27. DO AN VAN CON MOT SO";
+	gotoXY(155, 7);
+	SetColor(6);
+	cout << "THIEU SOT, MONG THAY BO QUA";
+	//IN RA TEN SINH VIEN
+	gotoXY(155, 31);
+	SetColor(2);
+	cout << "SINH VIEN THAM GIA LAM DO AN" << endl;
+	gotoXY(190, 31);
+	cout << "MA SV";
+	gotoXY(155, 35);
+	cout << "TRAN THIEN NHAN";
+	gotoXY(190, 35);
+	cout << "N20DCAT035";
+	gotoXY(155, 36);
+	cout << "PHAN TIEN SI";
+	gotoXY(190, 36);
+	cout << "N20DCAT048";
+	gotoXY(155, 37);
+	cout << "NGUYEN TAN VU";
+	gotoXY(190, 37);
+	cout << "N20DCAT065";
+	ShowCur(0);
+	_getch();
+}
+// tim sach theo ma
+nodeDMS* timsach(listDS l, string ma_sach)
+{
+	string isbn = tachISBN_tu_ma_sach(ma_sach);
+	int i = TIM_DS_THEO_MA(l, isbn);
+	if (i != -1)
+		for (nodeDMS* p = l.ds_DauSach[i]->dms.phead; p != NULL; p = p->pnext)
+		{
+			if (p->data.maSach == ma_sach)
+				return p;
+		}
+	return NULL;
+}
+int tinhNgay(Date t) {
+	Date t_now;
+	lay_thoi_gian(t_now);
+	int dem = 0;
+	while (t_now.nam >= t.nam)
+	{
+		if (t.nam == t_now.nam && t_now.thang == t.thang)
+		{
+			dem += t_now.ngay - t.ngay;
+			break;
+		}
+		else
+		{
+			if (t.thang == 4 || t.thang == 6 || t.thang == 9 || t.thang == 11)
+			{
+				dem += 30 - t.ngay;
+			}
+			if (t.thang == 1 || t.thang == 3 || t.thang == 5 || t.thang == 7 || t.thang == 8 || t.thang == 10 || t.thang == 12)
+			{
+				dem += 31 - t.ngay;
+			}
+			if (t.thang == 2)
+			{
+				if (t.nam % 4 == 0 && t.nam % 100 != 0 || t.nam % 400 == 0)
+				{
+					dem += 29 - t.ngay;
+				}
+				else
+					dem += 28 - t.ngay;
+			}
+			t.thang++; t.ngay = 0;
+			if (t.thang == 13)
+			{
+				t.nam++;
+				t.thang = 1;
+			}
+		}
+	}
+	return dem;
+}
+string timTenSach(listDauSach l,string s) {
+	for (int i = 0; i < l.sl; i++) {
+		if (l.ds_DauSach[i]->ISBN == s) {
+			return l.ds_DauSach[i]->tenSach;
+		}
+	}
+	return "-1";
+}
+int ktQuaHan(DocGia x) {
+	Date t;
+	lay_thoi_gian(t);
+	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
+		if (p->data.trangThai == 1) continue;
+		if (tinhNgay(p->data.ngayMuon) > 7) return -1;
+	}
+	return 1;
 }

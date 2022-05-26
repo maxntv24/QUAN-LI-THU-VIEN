@@ -80,6 +80,28 @@ struct nodeDocGia {
 };
 typedef struct nodeDocGia nodeDG;
 typedef struct nodeDocGia* treeDG;
+// QUA HAN
+struct quaHan
+{
+	int maDG;
+	string tenDG;
+	string tenSach;
+	Date ngayMuon;
+	int soNgay;
+};
+struct nodeQuaHan
+{
+	quaHan data;
+	nodeQuaHan* pnext;
+};
+typedef struct nodeQuaHan nodeQH;
+struct listQuaHan
+{
+	nodeQH* phead=NULL;
+	nodeQH* ptail=NULL;
+};
+typedef struct listQuaHan listQH;
+
 
 
 
