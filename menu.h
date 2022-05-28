@@ -107,6 +107,7 @@ void menuDocGia2(treeDG& t) {
 		SetBGColor(0);
 		system("cls");
 		BangDS_DocGia();
+		huongDanDG();
 		xuatDG_theoMa(t,check);
 		char k;
 		if (check == NULL) {
@@ -118,7 +119,6 @@ void menuDocGia2(treeDG& t) {
 			check = NULL;
 			system("cls");
 			xuatDG_theoTen(t,check);
-			_getch();
 			break;
 		}
 		case PHIM2:{  // them doc gia
@@ -128,7 +128,7 @@ void menuDocGia2(treeDG& t) {
 			ifstream inMaDG("MaDG.txt");
 			ofstream inTam("tam.txt");
 			inMaDG >> a.maThe;
-			cin >> a;
+			check=nhapDG(a);
 			themDocGia(t, a);
 			int tam;
 			while (inMaDG >> tam) {
@@ -164,7 +164,7 @@ void menuDocGia2(treeDG& t) {
 					GHI_FILE_DS_DG(t);
 					gotoXY(182, 10);
 					if (check == 1) {
-						cout << "DA XOA!!!";
+						cout << "DA XOA !!!     ";
 						ofstream out("MaDG.txt", ios_base::app);
 						out << x<<" ";
 						out.close();
@@ -173,7 +173,7 @@ void menuDocGia2(treeDG& t) {
 				}
 				else if (c == 'n') {
 					gotoXY(182, 10);
-					cout << "DA HUY";
+					cout << "DA HUY !!!      ";
 					break;
 				}
 			} while (c != 'y');
@@ -183,23 +183,24 @@ void menuDocGia2(treeDG& t) {
 		case PHIM4: {     // hieu chinh doc gia
 			check = NULL;
 			ShowCur(1);
-			textcolor(3);
 			BangHieuChinh();
 			int n=0;
 			gotoXY(182, 8);
 			check = nhapSo(182, 8, n);
 			if (check == ESC) break;
 			xoaBangHieuChinh();
-			hieuchinhDG(t, n);
+			check=hieuchinhDG(t, n);
 			XoaBangNhapDG();
 			BangHieuChinh();
 			textcolor(6);
 			gotoXY(182, 8);
 			cout << n;
 			gotoXY(182, 10);
-			cout << "Da hieu chinh!!!";
-			GHI_FILE_DS_DG(t);
-			char c = _getch();
+			if(check!=ESC){
+				cout << "Da hieu chinh!!!";
+				GHI_FILE_DS_DG(t);
+				char c = _getch();
+			}
 			break;
 		}
 		case ESC: {  //thoat
@@ -217,6 +218,9 @@ void menuDauSach(listDauSach& ds) {
 	bool flagDS=true;
 	while (flagDS) {
 		SetBGColor(0);
+		system("cls");
+		SetBGColor(0);
+		HuongDanDauSach();
 		xuatDauSach(ds,check);
 		char k;
 		if (check == NULL) {
@@ -258,7 +262,10 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 	int chon, sum = 4;
 	while (flagDG) {
 		SetBGColor(0);
+		system("cls");
+		SetBGColor(0);
 		textcolor(14);
+		HuongDanMuonTra();
 		xuatDG_theoMa(t, check);
 		if (check == ESC) {
 			return;
@@ -354,7 +361,9 @@ void menuChinh() {
 	while (1) {
 		ShowCur(0);
 		system("cls");
-		chon = MenuDong(menu, 5,3,3);
+		HuongDan(14, 5, 2, 13, 2, 7, 3, "ESC: Thoat");
+		HuongDan(14, 175, 2, 15, 2, 177, 3, "Enter: Chon");
+		chon = MenuDong(menu, 5,15,80);
 		switch (chon) {
 		case 1: {
 			menuDocGia2(t);

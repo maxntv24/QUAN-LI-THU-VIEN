@@ -146,13 +146,15 @@ int MenuDong2(char td[][50], int sum, int dong, int cot) {
 		case LEN: {
 			return LEN;
 		}
-				 break;
+		case ESC: {
+			return ESC;
+		}
 		case 13: return chon + 1;
 		}  // end switch
 	}
 }
 // ============ Xu li doc gia===============
-istream& operator>>(istream& in, DG& a)
+int nhapDG(DG& a)
 {
 	int check;
 	char phai[2][50] = {
@@ -163,6 +165,7 @@ istream& operator>>(istream& in, DG& a)
 		"0",
 		"1",
 	};
+	textcolor(3);
 	BangNhapDG();
 	textcolor(14);
 	ShowCur(1);
@@ -170,23 +173,32 @@ istream& operator>>(istream& in, DG& a)
 	gotoXY(177, 6);
 	cout << a.maThe;
 	//============ho======
-	ho:
+ho:
 	check = nhapChu(177,9,a.ho);
 	if (check == LEN) {
 		goto ho;
 	}
+	else if (check == ESC) {
+		return ESC;
+	}
 	//============ten=======
-	ten:
+ten:
 	check = nhapChu(177,13, a.ten);
 	if (check == LEN) {
 		goto ho;
 	}
+	else if (check == ESC) {
+		return ESC;
+	}
 	//=============phai====
-	phai:
+phai:
 	int chon = MenuDong2(phai, 2,17,177);
 	if (chon == LEN) {
 		textcolor(14);
 		goto ten;
+	}
+	else if (chon == ESC) {
+		return ESC;
 	}
 	else if (chon == 1) {
 		a.phai = "Nam";
@@ -196,14 +208,16 @@ istream& operator>>(istream& in, DG& a)
 	chon = MenuDong2(trangThai, 2, 20, 180);
 	if (chon == LEN) {
 		textcolor(14);
-
 		goto phai;
 	}
-	if (chon == 1) {
+	else if (chon == ESC) {
+		return ESC;
+	}
+	else if (chon == 1) {
 		a.trangThai=0;
 	}
 	else a.trangThai=1;
-	return in;
+	return 1;
 }
 ostream& operator<<(ostream& out, DG a) {
 	gotoXY(7, yXuat);
@@ -242,7 +256,7 @@ void xuatDG_theoMa(treeDG t,char &check)  // ki thuat left-node-right  sẽ đi 
 	DocGia** a = new DocGia * [soDG];
 	caySangMang(t, a, n);
 	for (int i = 0; i < tongSoTrang; i++) {
-		system("cls");
+		xoaBangDG();
 		textcolor(14);
 		BangDS_DocGia();
 		yXuat = 10;
@@ -307,7 +321,7 @@ void xuatDG_theoTen(treeDG t, char& check)
 			check = ESC;
 			break;
 		}
-		else if (c > '1' && c < '9') {
+		else if (c >= '1' && c <= '9') {
 			check = c;
 			return;
 		}
@@ -410,13 +424,14 @@ void xoaDocGia(treeDG& t, int x, int &check)
 		}
 	}
 }
-void hieuchinhDG(treeDG &t, int x)
+int hieuchinhDG(treeDG &t, int x)
 {
 	if (t != NULL)
 	{
 		if (t->data.maThe == x)
 		{
-			cin>> t->data;
+			int	check = nhapDG(t->data);
+			return check;
 		}
 		else if (t->data.maThe < x)
 		{
@@ -427,6 +442,7 @@ void hieuchinhDG(treeDG &t, int x)
 			hieuchinhDG(t->pleft, x);
 		}
 	}
+	return -1;
 }
 
 //============Xu li dau sach==============
@@ -465,7 +481,7 @@ void xuatDauSach(listDauSach ds,char& check) {
 	yXuat = 10;
 	Sap_Xep_Dau_Sach(ds);
 	for (int i = 0; i < tongSoTrang; i++) {
-		system("cls");
+		XoaBangDauSACH1();
 		textcolor(14);
 		BangDauSACH1();
 		yXuat = 10;
@@ -501,43 +517,67 @@ void xuatDauSach(listDauSach ds,char& check) {
 		}
 	}
 }
-istream& operator>>(istream& in, dauSach& a)
+int nhapDS(listDauSach l, dauSach a)
 {
 	a.soTrang = 0;
 	a.namXuatBan = 0;
 	int check;
 	BangNhapDauSach();
+ISBN:
 	textcolor(14);
-	ISBN:
 	check=nhapISBN(60,11,a.ISBN);
 	if (check == LEN) {
 		goto ISBN;
 	}
-	tenSach:
+	else if (check == ESC) {
+		return ESC;
+	}
+	if (TIM_DS_THEO_MA(l, a.ISBN) != -1) {
+		BangThongBao("ISBN da ton tai");
+		goto ISBN;
+	}
+tenSach:
+	XoaBangThongBao();
+	textcolor(14);
 	check = nhapChu(64, 13, a.tenSach);
 	if (check == LEN) {
 		goto ISBN;
 	}
-	soTrang:
+	else if (check == ESC) {
+		return ESC;
+	}
+soTrang:
 	check = nhapSo(64,15, a.soTrang);
 	if (check == LEN) {
 		goto tenSach;
 	}
-	tacGia:
+	else if (check == ESC) {
+		return ESC;
+	}
+tacGia:
 	check = nhapChu(63,17,a.tacGia);
 	if (check == LEN) {
 		goto soTrang;
 	}
-	namXuatBan:
+	else if (check == ESC) {
+		return ESC;
+	}
+namXuatBan:
 	check = nhapSo(68,19, a.namXuatBan);
 	if (check == LEN) {
 		goto tacGia;
+	}
+	else if (check == ESC) {
+		return ESC;
 	}
 	check = nhapChu(64,21, a.theLoai);
 	if (check == LEN) {
 		goto namXuatBan;
 	}
-	return in;
+	else if (check == ESC) {
+		return ESC;
+	}
+	return 1;
 }
 void themDauSach(listDauSach& ds, dauSach x) 
 {
@@ -550,8 +590,13 @@ void themDauSach(listDauSach& ds, dauSach x)
 void nhapDS(listDauSach& ds)
 {
 	dauSach a;
-	cin >> a;
-	themDauSach(ds, a);
+	int check = nhapDS(ds, a);
+	if (check == ESC) {
+		return;
+	}
+	else if (check == 1) {
+		themDauSach(ds, a);
+	}
 }
 
 void xuatThongTin_1_DS(dauSach a, int y) {

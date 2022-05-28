@@ -2,6 +2,39 @@
 #include <iostream>
 #include "my_lib.h"
 using namespace std;
+void HuongDan(int color, int x, int y, int dai, int rong, int chu, int churong, string s) {
+	SetColor(color);
+	gotoXY(x, y);
+	cout << char(201);
+	for (int i = x + 1; i < x + dai; i++)
+	{
+		gotoXY(i, y);
+		cout << char(205);
+	}
+	gotoXY(x + dai, y);
+	cout << char(187);
+	for (int j = y + 1; j < y + rong; j++)
+	{
+		gotoXY(x, j);
+		cout << char(186);
+	}
+	for (int j = y + 1; j < y + rong; j++)
+	{
+		gotoXY(x + dai, j);
+		cout << char(186);
+	}
+	gotoXY(x, y + rong);
+	cout << char(200);
+	gotoXY(x + dai, y + rong);
+	cout << char(188);
+	for (int i = x + 1; i < x + dai; i++)
+	{
+		gotoXY(i, y + rong);
+		cout << char(205);
+	}
+	gotoXY(chu, churong);
+	cout << s;
+}
 void BangDS_DocGia() { // bang danh sach doc gia
 	textcolor(9);
 	for (int i = 5; i <= 150; i++) {  // ve canh ngang
@@ -37,6 +70,29 @@ void BangDS_DocGia() { // bang danh sach doc gia
 	cout << "PHAI";
 	gotoXY(110, 8);
 	cout << "TRANG THAI";
+	
+}
+void huongDanDG() {
+	HuongDan(14, 15, 45, 23, 2, 17, 46, "Phim 1: Ten Tang Dan");
+	HuongDan(14, 80, 45, 23, 2, 82, 46, "Phim 2: Them Doc Gia");
+	HuongDan(14, 135, 45, 15, 2, 137, 46, "Phim 3: Xoa");
+	HuongDan(14, 175, 45, 23, 2, 177, 46, "Phim 4: Hieu Chinh");
+	HuongDan(14, 5, 2, 13, 2, 7, 3, "ESC: Thoat");
+	HuongDan(14, 175, 2, 15, 2, 177, 3, "Enter: Chon");
+}
+void HuongDanMuonTra() {
+	HuongDan(14, 5, 2, 13, 2, 7, 3, "ESC: Thoat");
+	HuongDan(14, 175, 2, 15, 2, 177, 3, "Enter: Chon");
+	HuongDan(14, 15, 45, 20, 2, 19, 46, "Phim 1: Muon");
+	HuongDan(14, 90, 45, 20, 2, 92, 46, "Phim 2: Tra Sach");
+	HuongDan(14, 170, 45, 23, 2, 172, 46, "Phim 3: Lam Mat Sach");
+}
+void HuongDanDauSach() {
+	HuongDan(14, 15, 45, 20, 2, 19, 46, "Phim 1: Nhap");
+	HuongDan(14, 95, 45, 20, 2, 97, 46, "Phim 2: Tim Kiem");
+	HuongDan(14, 172, 45, 20, 2, 174, 46, "Phim 3: Them sach");
+	HuongDan(14, 5, 2, 13, 2, 7, 3, "ESC: Thoat");
+	HuongDan(14, 175, 2, 15, 2, 177, 3, "Enter: Chon");
 }
 void xoaBangDG() {
 	for (int i = 5; i <= 150; i++) {  // ve canh ngang
@@ -131,6 +187,7 @@ void BangHieuChinh() {
 		gotoXY(200, i);
 		cout << char(219);
 	}
+	textcolor(14);
 	gotoXY(162, 8);
 	cout << "NHAP MA DOC GIA";
 	gotoXY(162, 10);
@@ -450,7 +507,7 @@ void BangThongBao(string s) {
 void XoaBangThongBao() {
 	textcolor(0);
 	for (int x = 160; x <= 200; x++) {// ve canh ngang
-		for (int y = 5; y <= 7; y++) {
+		for (int y = 4; y <= 7; y++) {
 			gotoXY(x, y);
 			cout << " ";
 		}

@@ -7,12 +7,12 @@ D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\ctdl.h(53,2): warning C4091: 'typedef 
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(50,20): warning C4018: '<': signed/unsigned mismatch
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(61,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(88,6): warning C4101: 'i': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(952,7): warning C4101: 'check': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(1051,7): warning C4101: 'check': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(997,7): warning C4101: 'check': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(1096,7): warning C4101: 'check': unreferenced local variable
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(103,6): warning C4101: 'chon': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(216,6): warning C4101: 'chon': unreferenced local variable
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(258,6): warning C4101: 'chon': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(217,6): warning C4101: 'chon': unreferenced local variable
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\menu.h(262,6): warning C4101: 'chon': unreferenced local variable
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(352): warning C4715: 'key': not all control paths return a value
 D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\HamHoTro.h(383): warning C4715: 'timDG_theo_ma': not all control paths return a value
-D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(678): warning C4715: 'TIM_DS_THEO_TEN': not all control paths return a value
+D:\CTDL\Quan-Li-Thu-Vien\Quan-Li-Thu-Vien\All_function.h(723): warning C4715: 'TIM_DS_THEO_TEN': not all control paths return a value
   Quan-Li-Thu-Vien.vcxproj -> D:\CTDL\Quan-Li-Thu-Vien\Debug\Quan-Li-Thu-Vien.exe
