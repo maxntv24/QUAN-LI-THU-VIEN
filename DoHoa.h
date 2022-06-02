@@ -147,7 +147,7 @@ void XoaBangNhapDG() {
 	}
 }
 void BangXoa() {
-	for (int i = 160; i <= 200; i++) {  // ve canh ngang
+	for (int i = 160; i <= 210; i++) {  // ve canh ngang
 		gotoXY(i, 7);
 		cout << char(220);
 		gotoXY(i, 9);
@@ -160,7 +160,7 @@ void BangXoa() {
 		cout << char(219);
 		gotoXY(180, i);
 		cout << char(219);
-		gotoXY(200, i);
+		gotoXY(210, i);
 		cout << char(219);
 	}
 	textcolor(14);

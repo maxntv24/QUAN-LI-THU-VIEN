@@ -160,16 +160,16 @@ void menuDocGia2(treeDG& t) {
 				c = _getch();
 				if (c == 'y') {
 					int check = 0;
-					xoaDocGia(t, x,check);
-					GHI_FILE_DS_DG(t);
 					gotoXY(182, 10);
+					xoaDocGia(t, x, check);
 					if (check == 1) {
+						GHI_FILE_DS_DG(t);
 						cout << "DA XOA !!!     ";
 						ofstream out("MaDG.txt", ios_base::app);
-						out << x<<" ";
+						out << x << " ";
 						out.close();
 					}
-					else cout << "MA THE KHONG TON TAI";
+					else if (check==0) cout << "MA THE KHONG TON TAI";
 				}
 				else if (c == 'n') {
 					gotoXY(182, 10);
@@ -178,6 +178,7 @@ void menuDocGia2(treeDG& t) {
 				}
 			} while (c != 'y');
 			c = _getch();
+			check = NULL;
 			break;
 		}
 		case PHIM4: {     // hieu chinh doc gia

@@ -1,9 +1,10 @@
-36
+35
 6835,Nguyen Tan,Vu,Nam,0
-3
+4
 1234-1,1,17/5/2022,11/6/2022
 8935236423359-1,1,17/5/2022,11/6/2022
 9999-1,1,26/5/2022,26/5/2022
+9999-1,0,2/6/2022,0/0/0
 3332,Phan Ngoc Yen,Ngan,Nu,1
 2
 8935236423359-2,1,17/5/2022,26/5/2022
@@ -13,8 +14,6 @@
 295,Hung Hong,Thuy,Nu,1
 1
 9999-5,0,10/5/2022,0/0/0
-133,Vu Duc,Quang,Nam,1
-0
 331,Lien Mai,Ha,Nu,1
 0
 541,Nguyen,Nhan,Nam,0
@@ -31,6 +30,8 @@
 0
 1794,Vu Quang,Dat,Nam,0
 0
+1603,Chau Kiet,Luan,Nam,0
+0
 2933,Vu Huy,Kha,Nam,1
 0
 3770,Dang Viet,Duy,Nam,0
@@ -46,8 +47,6 @@
 5541,Cu Hong,Chau,Nu,1
 0
 5310,Huong Phuong,Ngoc,Nu,0
-0
-4911,Nguyen Thi Thanh,Xuan,Nu,1
 0
 3937,Vu Ta,Hien,Nu,0
 0

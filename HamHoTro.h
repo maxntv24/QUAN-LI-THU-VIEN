@@ -399,10 +399,10 @@ int TIM_DS_THEO_MA(listDauSach l, string ma)
 	}
 	return -1;
 }
-int demSachDangMuon(DG x,int check) { // neu check =1 tra ve sach dang muon, neu check =2 tra ve sach da va dang muon
-	int dem1 = 0;
+// neu check =1 tra ve sach dang muon, neu check =2 tra ve sach da va dang muon
+int demSachDangMuon(DG x,int check) { 
 	int dem2 = 0;
-
+	int dem1 = 0;
 	for (nodeMT* p = x.mt.phead; p != NULL; p = p->pnext) {
 		if (p->data.trangThai == 0 || p->data.trangThai == 2) {
 			dem1++;

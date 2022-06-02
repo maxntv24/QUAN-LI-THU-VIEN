@@ -181,6 +181,9 @@ ho:
 	else if (check == ESC) {
 		return ESC;
 	}
+	if (a.ho.size() == 0) {
+		goto ho;
+	}
 	//============ten=======
 ten:
 	check = nhapChu(177,13, a.ten);
@@ -189,6 +192,9 @@ ten:
 	}
 	else if (check == ESC) {
 		return ESC;
+	}
+	if (a.ten.size() == 0) {
+		goto ten;
 	}
 	//=============phai====
 phai:
@@ -387,11 +393,18 @@ void nodeTheMang(treeDG& t, nodeDG*& k)
 		nodeTheMang(t, k->pright);
 	}
 }
+// check tra ve 0 thi ma the ko dung, check tra ve 1 da xoa, check =2 khong the xoa
 void xoaDocGia(treeDG& t, int x, int &check)
 {
 	if (t != NULL)
 	{
 		if (t->data.maThe == x) {
+			if (demSachDangMuon(t->data, 1) > 0) {
+				gotoXY(182, 10);
+				cout << "DOC GIA DANG MUON SACH";
+				check = 2;
+				return;
+			}
 			check = 1;
 			if (t->pleft == NULL && t->pright == NULL)
 			{
@@ -517,7 +530,7 @@ void xuatDauSach(listDauSach ds,char& check) {
 		}
 	}
 }
-int nhapDS(listDauSach l, dauSach a)
+int nhapDS(listDauSach l, dauSach& a)
 {
 	a.soTrang = 0;
 	a.namXuatBan = 0;
@@ -526,6 +539,7 @@ int nhapDS(listDauSach l, dauSach a)
 ISBN:
 	textcolor(14);
 	check=nhapISBN(60,11,a.ISBN);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto ISBN;
 	}
@@ -536,46 +550,79 @@ ISBN:
 		BangThongBao("ISBN da ton tai");
 		goto ISBN;
 	}
+	if (a.ISBN.size() != 9) {
+		BangThongBao("ISBN Khong hop le");
+		goto ISBN;
+	}
 tenSach:
-	XoaBangThongBao();
 	textcolor(14);
 	check = nhapChu(64, 13, a.tenSach);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto ISBN;
 	}
 	else if (check == ESC) {
 		return ESC;
 	}
+	if (a.tenSach.size() == 0) {
+		BangThongBao("Ten sach khong duoc de trong");
+		goto tenSach;
+	}
 soTrang:
+	textcolor(14);
 	check = nhapSo(64,15, a.soTrang);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto tenSach;
 	}
 	else if (check == ESC) {
 		return ESC;
 	}
+	if (a.soTrang == 0) {
+		BangThongBao("Khong duoc de trong so trang hoac bang 0");
+		goto soTrang;
+	}
 tacGia:
+	textcolor(14);
 	check = nhapChu(63,17,a.tacGia);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto soTrang;
 	}
 	else if (check == ESC) {
 		return ESC;
 	}
+	if (a.tenSach.size() == 0) {
+		BangThongBao("Khong duoc de trong tac gia");
+		goto tacGia;
+	}
 namXuatBan:
+	textcolor(14);
 	check = nhapSo(68,19, a.namXuatBan);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto tacGia;
 	}
 	else if (check == ESC) {
 		return ESC;
 	}
+	if (a.soTrang == 0) {
+		BangThongBao("Khong duoc de trong NXB hoac bang 0");
+		goto soTrang;
+	}
+theLoai:
+	textcolor(14);
 	check = nhapChu(64,21, a.theLoai);
+	XoaBangThongBao();
 	if (check == LEN) {
 		goto namXuatBan;
 	}
 	else if (check == ESC) {
 		return ESC;
+	}
+	if (a.tenSach.size() == 0) {
+		BangThongBao("Khong duoc de trong the loai");
+		goto theLoai;
 	}
 	return 1;
 }
