@@ -1,22 +1,50 @@
-48
+49
+893508684,Cach Mang,256,Emmal,2018,Chinh Tri,3
+6
+893508684-1,1,Ngan 2
+893508684-2,1,Ngan 2
+893508684-3,1,Ngan 2
+893508684-4,0,Ngan 2
+893508684-5,0,Ngan 2
+893508684-6,0,Ngan 2
+489526987,Lanh Dao Theo Gia Tri,260,Harry M,2019,Chinh Tri,0
+2
+489526987-1,0,Ngan 8
+489526987-2,0,Ngan 8
+896154236,Thu Linh Bo Lac,482,Dave Logan,2019,Chinh Tri,2
+2
+896154236-1,1,Ngan 7
+896154236-2,1,Ngan 7
+111111111,Cau Truc Du Lieu,158,Aaaa,2020,Cntt,0
+2
+111111111-1,0,Ngan 1
+111111111-2,0,Ngan 1
 893523521,Gai Phuot,316,Yem Dao Lang Lo,2017,Du Ky,0
-0
+4
+893523521-1,0,Ngan 2
+893523521-2,0,Ngan 2
+893523521-3,0,Ngan 2
+893523521-4,0,Ngan 2
 893524484,Kaa Du Ky,164,Kaa Illustration,2020,Du Ky,0
-0
-1234,Lat Leo Tieng Viet,288,Le Minh Quoc,2017,HAI HUOC - TRUYEN CUOI,0
+4
+893524484-1,0,Ngan 3
+893524484-2,0,Ngan 3
+893524484-3,0,Ngan 4
+893524484-4,0,Ngan 4
+123456789,Lat Leo Tieng Viet,288,Le Minh Quoc,2017,HAI HUOC - TRUYEN CUOI,3
 10
-1234-1,1,Ngan 1
-1234-2,1,Ngan 1
-1234-3,0,Ngan 1
-1234-4,0,Ngan 1
-1234-5,0,Ngan 1
-1234-6,0,Ngan 2
-1234-7,0,Ngan 2
-1234-8,0,Ngan 2
-1234-9,0,Ngan 2
-1234-10,0,Ngan 2
+123456789-1,1,Ngan 1
+123456789-2,0,Ngan 1
+123456789-3,0,Ngan 1
+123456789-4,1,Ngan 1
+123456789-5,1,Ngan 1
+123456789-6,0,Ngan 2
+123456789-7,0,Ngan 2
+123456789-8,0,Ngan 2
+123456789-9,0,Ngan 2
+123456789-10,0,Ngan 2
 893523642,Truyen Trang Quynh,104,Manh Linh,2021,HAI HUOC - TRUYEN CUOI,1
-20
+10
 893523642-1,1,Ngan 2
 893523642-2,0,Ngan 2
 893523642-3,0,Ngan 2
@@ -27,37 +55,87 @@
 893523642-8,0,Ngan 2
 893523642-9,0,Ngan 2
 893523642-10,0,Ngan 2
-893523642-11,0,Ngan 2
-893523642-12,0,Ngan 2
-893523642-13,0,Ngan 2
-893523642-14,0,Ngan 2
-893523642-15,0,Ngan 2
-893523642-16,0,Ngan 2
-893523642-17,0,Ngan 2
-893523642-18,0,Ngan 2
-893523642-19,0,Ngan 2
-893523642-20,0,Ngan 2
+129863548,Vu Tru Thu Nho,305,Vu Khai,2015,Kham Pha,0
+2
+129863548-1,0,Ngan 8
+129863548-2,0,Ngan 8
 299043600,Ke Toan Tai Chinh,896,Nhieu Tac Gia,2018,Kiem Toan,0
-0
+4
+299043600-1,0,Ngan 1
+299043600-2,0,Ngan 2
+299043600-3,0,Ngan 1
+299043600-4,0,Ngan 4
 893608623,Dao Mo Ra Quy,672,Quan Tu Tai Da,2022,Kinh Di- Huyen Bi,0
-0
+4
+893608623-1,0,Ngan 1
+893608623-2,0,Ngan 1
+893608623-3,0,Ngan 1
+893608623-4,0,Ngan 2
+893527070,Dinh Menh Chien Tranh,520,Graham Allison,2019,Kinh Te,0
+2
+893527070-1,0,Ngan 8
+893527070-2,0,Ngan 8
 893508684,Lam Dieu Quan Trong,296,John Doerr,2018,Kinh Te,0
 0
-893508684,Hieu Ve Trai Tim,480,Minh Niem,2019,Ky Nang Song,0
+893527071,Ve Trung Quoc,690,Henry Kissinger,2020,Kinh Te,0
 0
+893508685,Hieu Ve Trai Tim,480,Minh Niem,2019,Ky Nang Song,0
+2
+893508685-1,0,Ngan 4
+893508685-2,0,Ngan 4
 893497415,Tren Duong Bang,308,Tony Buoi Sang,2017,Ky Nang Song,0
-0
+3
+893497415-1,0,Ngan 2
+893497415-2,0,Ngan 2
+893497415-3,0,Ngan 2
 893606668,Tu Duy Phan Bien,172,Zoe McKey,2018,Ky Nang Song,0
-0
-9999,Anh Yeu,20,Trinh Cong Son,2020,Ngon Tinh,2
+3
+893606668-1,0,Ngan 4
+893606668-2,0,Ngan 4
+893606668-3,0,Ngan 4
+893525070,Your Name,256,Shinkai Makoto,2022,Light Novel,0
+4
+893525070-1,0,Ngan 9
+893525070-2,0,Ngan 9
+893525070-3,0,Ngan 8
+893525070-4,0,Ngan 8
+893497145,Thien Than Chinh Nghia,204,Chikai,2022,Manga,0
+2
+893497145-1,0,Ngan 9
+893497145-2,0,Ngan 9
+893524486,Thien Than Diet The,192,Yamato,2022,Manga,0
 5
-9999-1,1,Ngan 5
-9999-2,0,Ngan 5
-9999-3,0,Ngan 5
-9999-4,0,Ngan 5
-9999-5,1,Ngan 5
+893524486-1,0,Ngan 6
+893524486-2,0,Ngan 6
+893524486-3,0,Ngan 6
+893524486-4,0,Ngan 6
+893524486-5,0,Ngan 9
+999999999,Anh Yeu,20,Trinh Cong Son,2020,Ngon Tinh,1
+8
+999999999-1,1,Ngan 5
+999999999-2,0,Ngan 5
+999999999-3,0,Ngan 5
+999999999-4,0,Ngan 5
+999999999-5,0,Ngan 5
+999999999-6,0,Ngan 5
+999999999-7,0,Ngan 5
+999999999-8,0,Ngan10
+893521234,Ben Xe,284,Thuong Thai Vi,2020,Ngon Tinh,0
+5
+893521234-1,0,Ngan 9
+893521234-2,0,Ngan 9
+893521234-3,0,Ngan 4
+893521234-4,0,Ngan 5
+893521234-5,0,Ngan 4
+893521232,Ngan Nam Cho Doi,176,Diep Lac Vo Tam,2019,Ngon Tinh,0
+2
+893521232-1,0,Ngan 7
+893521232-2,0,Ngan 7
 978604552,Benh Bong,22,Daniel Miyares,2021,TRUYEN TRANH THIEU NHI,0
-0
+3
+978604552-1,0,Ngan 5
+978604552-2,0,Ngan 5
+978604552-3,0,Ngan 5
 893524486,Co Tich The Gioi Hay Nhat,156,Nhieu Tac Gia,2022,TRUYEN TRANH THIEU NHI,0
 0
 893523642,Hoang Tu Be,112,Vu Thi Thu Ha,2021,TRUYEN TRANH THIEU NHI,0
@@ -65,68 +143,79 @@
 893524486,Tet oi Tet Dau Roi?,36,Thao le,2022,TRUYEN TRANH THIEU NHI,0
 0
 978604556,Tran Ngap Ca Rot,36,Katy Hudson,2020,TRUYEN TRANH THIEU NHI,0
-0
+3
+978604556-1,0,Ngan 7
+978604556-2,0,Ngan 7
+978604556-3,0,Ngan 7
 978604338,Vuon Co Tich - Hoang Tu Ech,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
-0
-978604338,Vuon Co Tich - Pinocchio,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
-0
+2
+978604338-1,0,Ngan 7
+978604338-2,0,Ngan 7
+978604339,Vuon Co Tich - Pinocchio,32,Trieu Phuong Phuong,2021,TRUYEN TRANH THIEU NHI,0
+2
+978604339-1,0,Ngan 2
+978604339-2,0,Ngan 3
+978604555,Tu Huyet Cam Xuc,396,Van Hoang,2020,Tam Li,0
+2
+978604555-1,0,Ngan 5
+978604555-2,0,Ngan 5
 893532500,Giai Ma Giac Mo,352,Cao Minh,2021,Tam Ly,0
-0
+5
+893532500-1,0,Ngan 4
+893532500-2,0,Ngan 4
+893532500-3,0,Ngan 9
+893532500-4,0,Ngan 9
+893532500-5,0,Ngan 9
 893606760,Hieu Ung Den Gas,432,Robin Stern,2020,Tam Ly,0
-0
+2
+893606760-1,0,Ngan 4
+893606760-2,0,Ngan 4
 893523523,Nghien Cuu Tam Ly Hoc,348,Sigmund Freud,2022,Tam Ly,0
-0
+2
+893523523-1,0,Ngan 5
+893523523-2,0,Ngan 5
 893525140,Trong Chop Mat,376,Malcolm Gladwell,2018,Tam Ly,0
-0
+2
+893525140-1,0,Ngan 7
+893525140-2,0,Ngan 7
 893607167,Ba Nguoi Ban,532,Erich Maria,2016,Tieu Thuyet,0
+1
+893607167-1,0,Ngan 8
+893497141,Co Gai Den Tu Hom Qua,170,Nguyen Nhat Anh,2017,Tieu Thuyet,0
+2
+893497141-1,0,Ngan 6
+893497141-2,0,Ngan 6
+893497415,Ha Do,184,Nguyen Nhat Anh,2020,Tieu Thuyet,0
 0
+893497416,Mat Biec,300,Nguyen Nhat Anh,2019,Tieu Thuyet,0
+2
+893497416-1,0,Ngan 6
+893497416-2,0,Ngan 6
 893618654,Mua Thanh Xuan,344,HH Jelly,2020,Tieu Thuyet,0
-0
+2
+893618654-1,0,Ngan 8
+893618654-2,0,Ngan 8
 978604779,Thien Hon,366,Cao Minh,2021,Tieu Thuyet,0
+2
+978604779-1,0,Ngan 8
+978604779-2,0,Ngan 8
+893497415,Tren Duong Bang,308,Tony,2017,Tieu Thuyet,0
 0
 893527070,Xu Tram Huong,540,Quach Tan,2016,Tieu Thuyet,0
 0
+893523529,Nha Gia Kim,227,Le Chu Cau,2020,Tieu thuyet,0
+2
+89352352-1,0,Ngan 9
+89352352-2,0,Ngan 9
 893521234,Don Phuong,532,Keigo Higashino,2019,Trinh Tham,0
+0
+123456789,Giai Ma Tu Thi,300,Cao Minh,2019,Trinh Tham,0
 0
 893525070,Sau Gio Hoc,320,Keigo Higashino,2021,Trinh Tham,0
 0
 893532500,Tu Dien Tieng Em,280,Kho Tu Dien,2021,Truyen Ngan,0
 0
-123456789,Giai Ma Tu Thi,300,Cao Minh,2019,Trinh Tham,0
-0
-129863548,Vu Tru Thu Nho,305,Vu Khai,2015,Kham Pha,0
-0
-893523529,Nha Gia Kim,227,Le Chu Cau,2020,Tieu thuyet,0
-0
-893497415,Tren Duong Bang,308,Tony,2017,Tieu Thuyet,0
-0
-893521234,Ben Xe,284,Thuong Thai Vi,2020,Ngon Tinh,0
-0
-893521232,Ngan Nam Cho Doi,176,Diep Lac Vo Tam,2019,Ngon Tinh,0
-0
-978604555,Tu Huyet Cam Xuc,396,Van Hoang,2020,Tam Li,0
-0
-893508684,Cach Mang,256,Emmal,2018,Chinh Tri,0
-0
-893524486,Thien Than Diet The,192,Yamato,2022,Manga,0
-0
-893497145,Thien Than Chinh Nghia,204,Chikai,2022,Manga,0
-0
-893525070,Your Name,256,Shinkai Makoto,2022,Light Novel,0
-0
-893527070,Ve Trung Quoc,690,Henry Kissinger,2020,Kinh Te,0
-0
-893527070,Dinh Menh Chien Tranh,520,Graham Allison,2019,Kinh Te,0
-0
-893497415,Ha Do,184,Nguyen Nhat Anh,2020,Tieu Thuyet,0
-0
-893497141,Co Gai Den Tu Hom Qua,170,Nguyen Nhat Anh,2017,Tieu Thuyet,0
-0
-893497416,Mat Biec,300,Nguyen Nhat Anh,2019,Tieu Thuyet,0
-0
 893532009,Vui Ve Khong Quau,280,O Day Zui ne,2021,Truyen Ngan,0
-0
-896154236,Thu Linh Bo Lac,482,Dave Logan,2019,Chinh Tri,0
-0
-489526987,Lanh Dao Theo Gia Tri,260,Harry M,2019,Chinh Tri,0
-0
+2
+893532009-1,0,Ngan 6
+893532009-2,0,Ngan 6

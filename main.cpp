@@ -10,7 +10,7 @@ int main() {
 	remove_scrollbar();
 	//taoMaDocGia();
 	//testgithub
-	//intro();
+	intro();
 	menuChinh();
 	
 	return 0;

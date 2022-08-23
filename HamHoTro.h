@@ -168,7 +168,6 @@ int nhapSo(int x, int y,int &a) {
 		char c = _getch();
 		if (c == ESC) return ESC;
 		if (c == LEN) return LEN;
-		if (c == XUONG) return  XUONG;
 		if (c >= '0' && c <= '9') {
 			gotoXY(x++, y);
 			cout << c;
@@ -547,7 +546,7 @@ void intro() {
 	cout << "DAY LA DO AN KET THUC MON CAU TRUC DU LIEU VA";
 	gotoXY(155, 6);
 	SetColor(6);
-	cout << "GIAI THUAT CUA NHOM 27. DO AN VAN CON MOT SO";
+	cout << "GIAI THUAT. DO AN VAN CON MOT SO";
 	gotoXY(155, 7);
 	SetColor(6);
 	cout << "THIEU SOT, MONG THAY BO QUA";
@@ -558,16 +557,8 @@ void intro() {
 	gotoXY(190, 31);
 	cout << "MA SV";
 	gotoXY(155, 35);
-	cout << "TRAN THIEN NHAN";
-	gotoXY(190, 35);
-	cout << "N20DCAT035";
-	gotoXY(155, 36);
-	cout << "PHAN TIEN SI";
-	gotoXY(190, 36);
-	cout << "N20DCAT048";
-	gotoXY(155, 37);
 	cout << "NGUYEN TAN VU";
-	gotoXY(190, 37);
+	gotoXY(190, 35);
 	cout << "N20DCAT065";
 	ShowCur(0);
 	_getch();

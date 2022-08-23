@@ -1,1 +1,0 @@
--nếu không nhập tên mà enter thì báo lỗi

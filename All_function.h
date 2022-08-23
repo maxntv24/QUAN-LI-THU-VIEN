@@ -379,13 +379,13 @@ void themDocGia(treeDG& t, DocGia x)
 		}
 	}
 }
-void nodeTheMang(treeDG& t, nodeDG*& k)
+void nodeTheMang(treeDG& t, nodeDG*& k) // t la node can xoa , k la node the mang
 {
 	if (k->pright == NULL) // quy tắc phải cùng cây con trái
 	{
-		t->data = k->data;
+		t->data = k->data;  // thay the k vao t de the mang
 		nodeDG* tam = k;
-		k = k->pleft;
+		k = k->pleft;   // xoa node k vi da dem k di the mang cho t
 		delete tam;
 	}
 	else
@@ -592,7 +592,7 @@ tacGia:
 	else if (check == ESC) {
 		return ESC;
 	}
-	if (a.tenSach.size() == 0) {
+	if (a.tacGia.size() == 0) {
 		BangThongBao("Khong duoc de trong tac gia");
 		goto tacGia;
 	}
@@ -606,9 +606,9 @@ namXuatBan:
 	else if (check == ESC) {
 		return ESC;
 	}
-	if (a.soTrang == 0) {
-		BangThongBao("Khong duoc de trong NXB hoac bang 0");
-		goto soTrang;
+	if (a.namXuatBan == 0 || a.namXuatBan >2022) {
+		BangThongBao("NXB khong hop le");
+		goto namXuatBan;
 	}
 theLoai:
 	textcolor(14);
@@ -620,7 +620,7 @@ theLoai:
 	else if (check == ESC) {
 		return ESC;
 	}
-	if (a.tenSach.size() == 0) {
+	if (a.theLoai.size() == 0) {
 		BangThongBao("Khong duoc de trong the loai");
 		goto theLoai;
 	}
@@ -705,7 +705,6 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 			int k = 10;
 			bool check = true;
 			while (check) {
-				gotoXY(0, 0); cout << k;
 				gotoXY(24, k);
 				ToMau(24, k, l.ds_DauSach[DS_timthay[k - 10]]->tenSach, 12);
 				char c = _getch();
@@ -759,6 +758,7 @@ int TIM_DS_THEO_TEN(listDauSach l, string ten) {
 				yXuat++;
 			}
 			_getch();
+			system("cls");
 		}
 		else
 		{
@@ -848,7 +848,11 @@ void themSach(listDS& l) {
 		cout << x.maSach;
 		gotoXY(180, 14);
 		cout << vitri;
+		vitri:
 		check = nhapChuVaSo(180, 14, vitri);
+		if (vitri.size() == 0) {
+			goto vitri;
+		}
 		x.vitri = vitri;
 		x.trangThai = 0; // mặc định sách có thể mượn được
 		them_sach_vao_ds(l.ds_DauSach[i]->dms, khoitaoDMS(x));
@@ -1006,7 +1010,7 @@ int muonSACH(nodeDG* &dg,listDS &l) {
 						k->data.trangThai = 1; // cap nhat sach co nguoi muon
 						flag = false;
 						gotoXY(180, 8);
-						cout << ("DA MUON");
+						cout << ("DA MUON              ");
 						break;
 					}
 					else if (k->data.trangThai == 1)
@@ -1282,6 +1286,13 @@ void timQH(listDauSach ds , treeDG t, listQH &l, int &n) {
 		timQH(ds, t->pright, l, n);
 	}
 }
+void giaiPhongQH(listQH &l) {
+	while (l.phead != NULL) {
+		nodeQH* tam = l.phead;
+		l.phead = l.phead->pnext;
+		delete tam;
+	}
+}
 void dsQuaHan(listDS ds,treeDG t) {
 	yXuat = 10;
 	SetBGColor(0);
@@ -1309,15 +1320,13 @@ void dsQuaHan(listDS ds,treeDG t) {
 		BangThongBao("DANH SACH TRONG");
 	else
 		_getch();
+	giaiPhongQH(l);
 }
 void top10sach(listDauSach l)
 {
 	SetBGColor(0);
 	system("cls");
 	BangTop10();
-	// có thể dùng heapsort lấy ra top 10 nhưng không thay đổi vị trí
-	// hoặc dùng mảng temp chứa mã sách và số lượng mượn 
-	// sắp xếp theo thứ tự giảm dần top 10 sách
 	for (int i = 0; i < l.sl - 1; i++)
 	{
 		for (int j = i + 1; j < l.sl; j++)
@@ -1335,10 +1344,47 @@ void top10sach(listDauSach l)
 	int top = 0;
 	for (int k = 0; k < l.sl && k < 10; k++)
 	{
-		gotoXY(168, yXuat);
-		cout << ++top;
-		gotoXY(152, yXuat);
-		cout << l.ds_DauSach[k]->soLuongMuon;
-		cout << *l.ds_DauSach[k];	
+		if (l.ds_DauSach[k]->soLuongMuon > 0) {
+			gotoXY(168, yXuat);
+			cout << ++top;
+			gotoXY(152, yXuat);
+			cout << l.ds_DauSach[k]->soLuongMuon;
+			cout << *l.ds_DauSach[k];
+		}	
 	}
+}
+void giaiPhongMT(listMT &l) {
+	while (l.phead != NULL) {
+		nodeMT* tam = l.phead;
+		l.phead = l.phead->pnext;
+		delete tam;
+	}
+}
+void giaiPhongDG(treeDG &t) {
+	if (t == NULL) {
+		return;
+	}
+	else {
+		giaiPhongDG(t->pleft);
+		giaiPhongDG(t->pright);
+		giaiPhongMT(t->data.mt);
+		nodeDG* tam = t;
+		t = NULL;
+		delete tam;
+	}
+}
+void giaiPhongDMS(listDMS &l) {
+	while (l.phead != NULL) {
+		nodeDMS* tam = l.phead;
+		l.phead = l.phead->pnext;
+		delete tam;
+	}
+}
+void giaiPhongDS(listDS &ds) {
+	for (int i = 0; i < ds.sl; i++) {
+		giaiPhongDMS(ds.ds_DauSach[i]->dms);
+		delete ds.ds_DauSach[i];
+		ds.ds_DauSach[i] = NULL;
+	}
+	ds.sl = 0;
 }

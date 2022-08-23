@@ -83,7 +83,7 @@ void huongDanDG() {
 void HuongDanMuonTra() {
 	HuongDan(14, 5, 2, 13, 2, 7, 3, "ESC: Thoat");
 	HuongDan(14, 175, 2, 15, 2, 177, 3, "Enter: Chon");
-	HuongDan(14, 15, 45, 20, 2, 19, 46, "Phim 1: Muon");
+	HuongDan(14, 15, 45, 20, 2, 17, 46, "Phim 1: Muon Sach");
 	HuongDan(14, 90, 45, 20, 2, 92, 46, "Phim 2: Tra Sach");
 	HuongDan(14, 170, 45, 23, 2, 172, 46, "Phim 3: Lam Mat Sach");
 }
@@ -351,7 +351,7 @@ void XoaBangDauSACH2() { // bang danh sach doc gia
 }
 void BangNhap(string s) {
 	textcolor(9);
-	for (int i = 160; i <= 200; i++) {// ve canh ngang
+	for (int i = 160; i <= 210; i++) {// ve canh ngang
 		gotoXY(i, 5);
 		cout << char(220);
 		gotoXY(i, 7);
@@ -364,7 +364,7 @@ void BangNhap(string s) {
 		cout << char(219);
 		gotoXY(178, i);
 		cout << char(219);
-		gotoXY(200, i);
+		gotoXY(210, i);
 		cout << char(219);
 	}
 	textcolor(14);
@@ -376,7 +376,7 @@ void BangNhap(string s) {
 }
 void XoaBang() {
 	textcolor(0);
-	for (int x = 160; x <= 200; x++) {// ve canh ngang
+	for (int x = 160; x <= 210; x++) {// ve canh ngang
 		for (int y = 5; y <= 21; y++) {
 			gotoXY(x, y);
 			cout << " ";
@@ -488,7 +488,7 @@ void xoaBangMuonSach() {
 }
 void BangThongBao(string s) {
 	textcolor(9);
-	for (int i = 160; i <= 200; i++) {// ve canh ngang
+	for (int i = 160; i <= 210; i++) {// ve canh ngang
 		gotoXY(i, 4);
 		cout << char(220);
 		gotoXY(i, 6);
@@ -497,7 +497,7 @@ void BangThongBao(string s) {
 	for (int i = 5; i <= 6; i++) {// ve canh doc
 		gotoXY(160, i);
 		cout << char(219);
-		gotoXY(200, i);
+		gotoXY(210, i);
 		cout << char(219);
 	}
 	textcolor(14);
@@ -506,7 +506,7 @@ void BangThongBao(string s) {
 }
 void XoaBangThongBao() {
 	textcolor(0);
-	for (int x = 160; x <= 200; x++) {// ve canh ngang
+	for (int x = 160; x <= 210; x++) {// ve canh ngang
 		for (int y = 4; y <= 7; y++) {
 			gotoXY(x, y);
 			cout << " ";

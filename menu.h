@@ -97,11 +97,11 @@ char menuDS[][50] =
 //	}
 //}
 void menuDocGia2(treeDG& t) {
-	ShowCur(0);
 	char check=NULL;
 	bool flagDG = true; // bien dung de ngat vong while va quay ve menu chinh
 	int chon, sum = 4;
 	while (flagDG) {
+		ShowCur(0);
 		//chon = MenuDong(menuDG, sum, 3, 40);
 		yXuat = 10;
 		SetBGColor(0);
@@ -129,18 +129,20 @@ void menuDocGia2(treeDG& t) {
 			ofstream inTam("tam.txt");
 			inMaDG >> a.maThe;
 			check=nhapDG(a);
-			themDocGia(t, a);
-			int tam;
-			while (inMaDG >> tam) {
-				if (tam != a.maThe) {
-					inTam << tam << " ";
+			if (check != ESC) {
+				themDocGia(t, a);
+				int tam;
+				while (inMaDG >> tam) {
+					if (tam != a.maThe) {
+						inTam << tam << " ";
+					}
 				}
+				inMaDG.close();
+				inTam.close();
+				remove("MaDG.txt");
+				rename("tam.txt", "MaDG.txt");
+				GHI_FILE_DS_DG(t);
 			}
-			inMaDG.close();
-			inTam.close();
-			remove("MaDG.txt");
-			rename("tam.txt", "MaDG.txt");
-			GHI_FILE_DS_DG(t);
 			system("cls");
 			break;
 		}
@@ -208,16 +210,19 @@ void menuDocGia2(treeDG& t) {
 			flagDG = false;
 			break;
 		}
+		default: {
+			break;
+		}
 		}
 	}
 }
 
 void menuDauSach(listDauSach& ds) {
-	ShowCur(0);
 	char check = NULL;
 	int chon, sum = 4;
 	bool flagDS=true;
 	while (flagDS) {
+		ShowCur(0);
 		SetBGColor(0);
 		system("cls");
 		SetBGColor(0);
@@ -253,15 +258,18 @@ void menuDauSach(listDauSach& ds) {
 			flagDS = false;
 			break;
 		}
+		default: {
+			break;
+		}
 		}
 	}
 }
 void menuMuonTra(treeDG& t,listDauSach& l) {
-	ShowCur(0);
 	char check = NULL;
 	bool flagDG = true; // bien dung de ngat vong while va quay ve menu chinh
 	int chon, sum = 4;
 	while (flagDG) {
+		ShowCur(0);
 		SetBGColor(0);
 		system("cls");
 		SetBGColor(0);
@@ -302,6 +310,11 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 			else if (ktQuaHan(p->data) == -1) {
 				gotoXY(180, 8);
 				cout << "CO SACH MUON QUA HAN";
+				check = _getch();
+			}
+			else if (p->data.trangThai == 0) {
+				gotoXY(180, 8);
+				cout << "THE BI KHOA";
 				check = _getch();
 			}
 			else {
@@ -346,6 +359,9 @@ void menuMuonTra(treeDG& t,listDauSach& l) {
 			flagDG = false;
 			break;
 		}
+		default: {
+			break;
+		}
 		}
 	}
 }
@@ -388,7 +404,12 @@ void menuChinh() {
 			break;
 		}
 		case ESC: {
+			giaiPhongDG(t);
+			giaiPhongDS(ds);
 			exit(0);
+		}
+		default: {
+			break;
 		}
 		}
 	}
